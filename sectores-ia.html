@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sectores que Transformamos con IA — Appgile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --accent: #22d3ee;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --bg: #0a0a0f;
+            --bg-card: #111118;
+            --border: rgba(255,255,255,0.06);
+            --text: #f8fafc;
+            --text-muted: #71717a;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        
+        /* Hero */
+        .hero {
+            padding: 100px 0 60px;
+            text-align: center;
+            background: radial-gradient(ellipse at 50% 0%, rgba(99,102,241,0.12) 0%, transparent 60%);
+        }
+        
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 900;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero h1 span { color: var(--accent); }
+        
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Stats */
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            padding: 40px 0;
+            flex-wrap: wrap;
+        }
+        
+        .stat { text-align: center; }
+        .stat-value { font-size: 3rem; font-weight: 800; color: var(--accent); }
+        .stat-label { font-size: 14px; color: var(--text-muted); }
+        
+        /* Sectors */
+        section { padding: 60px 0; }
+        
+        .section-title {
+            font-size: 2rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 48px;
+            font-size: 1.1rem;
+        }
+        
+        .sectors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 24px;
+        }
+        
+        .sector-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 32px;
+            transition: all 0.3s;
+        }
+        
+        .sector-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(99,102,241,0.1);
+        }
+        
+        .sector-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+        
+        .sector-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, rgba(99,102,241,0.2), rgba(34,211,238,0.1));
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+        }
+        
+        .sector-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+        
+        .sector-desc {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .sector-usecases {
+            margin-bottom: 20px;
+        }
+        
+        .sector-usecases h4 {
+            font-size: 12px;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+        
+        .usecase-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .usecase-tag {
+            font-size: 12px;
+            padding: 6px 12px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            color: var(--text-muted);
+        }
+        
+        .sector-impact {
+            display: flex;
+            gap: 20px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
+        }
+        
+        .impact-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+        }
+        
+        .impact-item .value {
+            color: var(--success);
+            font-weight: 700;
+        }
+        
+        .impact-item .label {
+            color: var(--text-muted);
+        }
+        
+        /* Emerging */
+        .emerging-section {
+            background: linear-gradient(180deg, transparent 0%, rgba(99,102,241,0.03) 100%);
+            padding: 80px 0;
+        }
+        
+        .emerging-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 16px;
+        }
+        
+        .emerging-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.2s;
+        }
+        
+        .emerging-card:hover {
+            border-color: var(--accent);
+        }
+        
+        .emerging-icon { font-size: 2rem; margin-bottom: 8px; }
+        .emerging-name { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+        .emerging-example { font-size: 12px; color: var(--text-muted); }
+        
+        /* CTA */
+        .cta-section {
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .cta-box {
+            background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(34,211,238,0.05));
+            border: 1px solid rgba(99,102,241,0.2);
+            border-radius: 24px;
+            padding: 60px 40px;
+        }
+        
+        .cta-box h2 { font-size: 2rem; margin-bottom: 16px; }
+        .cta-box p { color: var(--text-muted); margin-bottom: 32px; font-size: 1.1rem; }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), #4f46e5);
+            color: white;
+            padding: 16px 36px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .btn:hover { transform: translateY(-2px); }
+        
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .stats { gap: 30px; }
+            .stat-value { font-size: 2rem; }
+            .sectors-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="container">
+        <h1>Sectores que <span>Transformamos</span> con IA</h1>
+        <p>La inteligencia artificial no es solo para big tech. Cada industria tiene oportunidades de automatización, predicción y mejora. Descubre cómo la IA puede revolucionar tu sector.</p>
+        
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-value">180+</div>
+                <div class="stat-label">Proyectos entregados</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">15+</div>
+                <div class="stat-label">Sectores cubiertos</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">40%</div>
+                <div class="stat-label">Ahorro medio en costes</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Main Sectors -->
+<section>
+    <div class="container">
+        <h2 class="section-title">Sectores con Mayor Impacto de IA</h2>
+        <p class="section-subtitle">Industrias donde hemos implementado soluciones con resultados medibles</p>
+        
+        <div class="sectors-grid">
+        
+            <!-- Fintech -->
+            <div class="sector-card">
+                <div class="sector-header">
+                    <div class="sector-icon">💰</div>
+                    <div class="sector-name">Fintech & Banca</div>
+                </div>
+                <p class="sector-desc">Automatización de procesos financieros, scoring de riesgo, detección de fraude y experiencias personalizadas para clientes.</p>
+                <div class="sector-usecases">
+                    <h4>Casos de uso</h4>
+                    <div class="usecase-list">
+                        <span class="usecase-tag">KYC automatizado</span>
+                        <span class="usecase-tag">Scoring crediticio</span>
+                        <span class="usecase-tag">Chatbot financiero</span>
+                        <span class="usecase-tag">Detección fraude</span>
+                        <span class="usecase-tag">Plugins embebidos</span>
+                    </div>
+                </div>
+                <div class="sector-impact">
+                    <div class="impact-item"><span class="value">-60%</span><span class="label">tiempo KYC</span></div>
+                    <div class="impact-item"><span class="value">+35%</span><span class="label">conversión</span></div>
+                </div>
+            </div>
+            
+            <!-- Insurance -->
+            <div class="sector-card">
+                <div class="sector-header">
+                    <div class="sector-icon">🛡️</div>
+                    <div class="sector-name">Seguros (InsurTech)</div>
+                </div>
+                <p class="sector-desc">Cotizadores inteligentes, procesamiento de siniestros, plugins embebibles para partners y análisis de riesgo predictivo.</p>
+                <div class="sector-usecases">
+                    <h4>Casos de uso</h4>
+                    <div class="usecase-list">
+                        <span class="usecase-tag">Cotizador IA</span>
+                        <span class="usecase-tag">Claim automation</span>
+                        <span class="usecase-tag">Embedded insurance</span>
+                        <span class="usecase-tag">Risk scoring</span>
+                    </div>
+                </div>
+                <div class="sector-impact">
+                    <div class="impact-item"><span class="value">15min</span><span class="label">integración</span></div>
+                    <div class="impact-item"><span class="value">6</span><span class="label">países</span></div>
+                </div>
+            </div>
+            
+            <!-- Healthcare -->
+            <div class="sector-card">
+                <div class="sector-header">
+                    <div class="sector-icon">🏥</div>
+                    <div class="sector-name">Salud (HealthTech)</div>
+                </div>
+                <p class="sector-desc">Asistentes clínicos, automatización de citas, triaje por chat, procesamiento de documentación médica y formación sanitaria.</p>
+                <div class="sector-usecases">
+                    <h4>Casos de uso</h4>
+                    <div class="usecase-list">
+                        <span class="usecase-tag">Asistente clínico</span>
+                        <span class="usecase-tag">Recordatorio citas</span>
+                        <span class="usecase-tag">Triaje chatbot</span>
+                        <span class="usecase-tag">HIS/EHR parsing</span>
+                    </div>
+                </div>
+                <div class="sector-impact">
+                    <div class="impact-item"><span class="value">-70%</span><span class="label">no-shows</span></div>
+                    <div class="impact-item"><span class="value">24/7</span><span class="label">atención</span></div>
+                </div>
+            </div>
+            
+            <!-- Education -->
+            <div class="sector-card">
+                <div class="sector-header">
+                    <div class="sector-icon">🎓</div>
+                    <div class="sector-name">Educación (EdTech)</div>
+                </div>
+                <p class="sector-desc">LMS gamificados, generación de contenido educativo, tutores IA personalizados y análisis de progreso de alumnos.</p>
+                <div class="sector-usecases">
+                    <h4>Casos de uso</h4>
+                    <div class="usecase-list">
+                        <span class="usecase-tag">LMS gamificado</span>
+                        <span class="usecase-tag">Tutor IA</span>
+                        <span class="usecase-tag">Generación tests</span>
+                        <span class="usecase-tag">Certificaciones auto</span>
+                    </div>
+                </div>
+                <div class="sector-impact">
+                    <div class="impact-item"><span class="value">+85%</span><span class="label">engagement</span></div>
+                    <div class="impact-item"><span class="value">92%</span><span class="label">completado</span></div>
+                </div>
+            </div>
+            
+            <!-- Logistics -->
+            <div class="sector-card">
+                <div class="sector-header">
+                    <div class="sector-icon">🚚</div>
+                    <div class="sector-name">Logística & Transporte</div>
+                </div>
+                <p class="sector-desc">Presupuestos automáticos con visión IA, optimización de rutas, predicción de demanda y automatización de operaciones.</p>
+                <div class="sector-usecases">
+                    <h4>Casos de uso</h4>
+                    <div class="usecase-list">
+                        <span class="usecase-tag">Presupuesto por foto</span>
+                        <span class="usecase-tag">Optimización rutas</span>
+                        <span class="usecase-tag">Tracking inteligente</span>
+                        <span class="usecase-tag">Demand forecasting</span>
+                    </div>
+                </div>
+                <div class="sector-impact">
+                    <div class="impact-item"><span class="value">30s</span><span class="label">presupuesto</span></div>
+                    <div class="impact-item"><span class="value">-97%</span><span class="label">tiempo</span></div>
+                </div>
+            </div>
+            
+            <!-- Food -->
+            <div class="sector-card">
+                <div class="sector-header">
+                    <div class="sector-icon">🍕</div>
+                    <div class="sector-name">Alimentación (FoodTech)</div>
+                </div>
+                <p class="sector-desc">Formulación de productos con IA, gestión de ingredientes, trazabilidad, cálculo nutricional automático y optimización de recetas.</p>
+                <div class="sector-usecases">
+                    <h4>Casos de uso</h4>
+                    <div class="usecase-list">
+                        <span class="usecase-tag">Formulación IA</span>
+                        <span class="usecase-tag">Base ingredientes</span>
+                        <span class="usecase-tag">Cálculo nutricional</span>
+                        <span class="usecase-tag">Control calidad</span>
+                    </div>
+                </div>
+                <div class="sector-impact">
+                    <div class="impact-item"><span class="value">43</span><span class="label">fórmulas</span></div>
+                    <div class="impact-item"><span class="value">8.6/10</span><span class="label">calidad</span></div>
+                </div>
+            </div>
+            
+            <!-- Legal -->
+            <div class="sector-card">
+                <div class="sector-header">
+                    <div class="sector-icon">⚖️</div>
+                    <div class="sector-name">Legal (LegalTech)</div>
+                </div>
+                <p class="sector-desc">Análisis de documentos legales, asistentes de compliance, tracking de plazos y generación de contratos.</p>
+                <div class="sector-usecases">
+                    <h4>Casos de uso</h4>
+                    <div class="usecase-list">
+                        <span class="usecase-tag">Análisis contratos</span>
+                        <span class="usecase-tag">Due diligence IA</span>
+                        <span class="usecase-tag">Compliance bot</span>
+                        <span class="usecase-tag">Plazos automáticos</span>
+                    </div>
+                </div>
+                <div class="sector-impact">
+                    <div class="impact-item"><span class="value">15s</span><span class="label">análisis</span></div>
+                    <div class="impact-item"><span class="value">-80%</span><span class="label">tiempo</span></div>
+                </div>
+            </div>
+            
+            <!-- Real Estate -->
+            <div class="sector-card">
+                <div class="sector-header">
+                    <div class="sector-icon">🏠</div>
+                    <div class="sector-name">Inmobiliario (PropTech)</div>
+                </div>
+                <p class="sector-desc">Valoración automática, matchmaking de propiedades, visitas virtuales con IA y gestión de leads inteligente.</p>
+                <div class="sector-usecases">
+                    <h4>Casos de uso</h4>
+                    <div class="usecase-list">
+                        <span class="usecase-tag">Valoración IA</span>
+                        <span class="usecase-tag">Matching comprador</span>
+                        <span class="usecase-tag">Virtual staging</span>
+                        <span class="usecase-tag">Lead scoring</span>
+                    </div>
+                </div>
+                <div class="sector-impact">
+                    <div class="impact-item"><span class="value">+45%</span><span class="label">conversión</span></div>
+                    <div class="impact-item"><span class="value">24/7</span><span class="label">atención</span></div>
+                </div>
+            </div>
+            
+            <!-- HR -->
+            <div class="sector-card">
+                <div class="sector-header">
+                    <div class="sector-icon">👥</div>
+                    <div class="sector-name">Recursos Humanos (HRTech)</div>
+                </div>
+                <p class="sector-desc">Screening de CVs, entrevistas IA, onboarding automatizado, employee engagement y análisis de clima laboral.</p>
+                <div class="sector-usecases">
+                    <h4>Casos de uso</h4>
+                    <div class="usecase-list">
+                        <span class="usecase-tag">CV screening</span>
+                        <span class="usecase-tag">Entrevista IA</span>
+                        <span class="usecase-tag">Onboarding auto</span>
+                        <span class="usecase-tag">Pulse surveys</span>
+                    </div>
+                </div>
+                <div class="sector-impact">
+                    <div class="impact-item"><span class="value">-70%</span><span class="label">tiempo hiring</span></div>
+                    <div class="impact-item"><span class="value">+40%</span><span class="label">fit cultural</span></div>
+                </div>
+            </div>
+            
+            <!-- Retail -->
+            <div class="sector-card">
+                <div class="sector-header">
+                    <div class="sector-icon">🛒</div>
+                    <div class="sector-name">Retail & E-commerce</div>
+                </div>
+                <p class="sector-desc">Recomendaciones personalizadas, chatbots de ventas, gestión de inventario predictiva y pricing dinámico.</p>
+                <div class="sector-usecases">
+                    <h4>Casos de uso</h4>
+                    <div class="usecase-list">
+                        <span class="usecase-tag">Recomendador</span>
+                        <span class="usecase-tag">Chatbot ventas</span>
+                        <span class="usecase-tag">Inventory forecast</span>
+                        <span class="usecase-tag">Dynamic pricing</span>
+                    </div>
+                </div>
+                <div class="sector-impact">
+                    <div class="impact-item"><span class="value">+25%</span><span class="label">ticket medio</span></div>
+                    <div class="impact-item"><span class="value">+35%</span><span class="label">conversión</span></div>
+                </div>
+            </div>
+            
+            <!-- Marketing -->
+            <div class="sector-card">
+                <div class="sector-header">
+                    <div class="sector-icon">📣</div>
+                    <div class="sector-name">Marketing & Publicidad</div>
+                </div>
+                <p class="sector-desc">Generación de contenido, análisis de campañas, segmentación avanzada y automatización de ads.</p>
+                <div class="sector-usecases">
+                    <h4>Casos de uso</h4>
+                    <div class="usecase-list">
+                        <span class="usecase-tag">Content generation</span>
+                        <span class="usecase-tag">Ad copy IA</span>
+                        <span class="usecase-tag">Audience insights</span>
+                        <span class="usecase-tag">A/B auto testing</span>
+                    </div>
+                </div>
+                <div class="sector-impact">
+                    <div class="impact-item"><span class="value">10x</span><span class="label">más contenido</span></div>
+                    <div class="impact-item"><span class="value">-50%</span><span class="label">coste por lead</span></div>
+                </div>
+            </div>
+            
+            <!-- Manufacturing -->
+            <div class="sector-card">
+                <div class="sector-header">
+                    <div class="sector-icon">🏭</div>
+                    <div class="sector-name">Manufactura & Industria</div>
+                </div>
+                <p class="sector-desc">Control de calidad visual, mantenimiento predictivo, optimización de producción y gestión de supply chain.</p>
+                <div class="sector-usecases">
+                    <h4>Casos de uso</h4>
+                    <div class="usecase-list">
+                        <span class="usecase-tag">QC visual</span>
+                        <span class="usecase-tag">Predictive maint.</span>
+                        <span class="usecase-tag">Production opt.</span>
+                        <span class="usecase-tag">Supply chain</span>
+                    </div>
+                </div>
+                <div class="sector-impact">
+                    <div class="impact-item"><span class="value">-40%</span><span class="label">defectos</span></div>
+                    <div class="impact-item"><span class="value">-30%</span><span class="label">downtime</span></div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+<!-- Emerging Sectors -->
+<section class="emerging-section">
+    <div class="container">
+        <h2 class="section-title">Sectores Emergentes con Alto Potencial</h2>
+        <p class="section-subtitle">Industrias donde la IA está empezando a generar disrupciones significativas</p>
+        
+        <div class="emerging-grid">
+            <div class="emerging-card">
+                <div class="emerging-icon">🎵</div>
+                <div class="emerging-name">Música & Audio</div>
+                <div class="emerging-example">Identificación, playlists, mastering</div>
+            </div>
+            <div class="emerging-card">
+                <div class="emerging-icon">🏋️</div>
+                <div class="emerging-name">Fitness & Wellness</div>
+                <div class="emerging-example">Planes personalizados, tracking</div>
+            </div>
+            <div class="emerging-card">
+                <div class="emerging-icon">🌾</div>
+                <div class="emerging-name">Agricultura (AgriTech)</div>
+                <div class="emerging-example">Predicción cosechas, plagas</div>
+            </div>
+            <div class="emerging-card">
+                <div class="emerging-icon">⚡</div>
+                <div class="emerging-name">Energía (EnergyTech)</div>
+                <div class="emerging-example">Demand forecasting, smart grid</div>
+            </div>
+            <div class="emerging-card">
+                <div class="emerging-icon">🎮</div>
+                <div class="emerging-name">Gaming & Entretenimiento</div>
+                <div class="emerging-example">NPCs inteligentes, contenido</div>
+            </div>
+            <div class="emerging-card">
+                <div class="emerging-icon">✈️</div>
+                <div class="emerging-name">Travel & Turismo</div>
+                <div class="emerging-example">Planificación, recomendaciones</div>
+            </div>
+            <div class="emerging-card">
+                <div class="emerging-icon">🔐</div>
+                <div class="emerging-name">Ciberseguridad</div>
+                <div class="emerging-example">Threat detection, análisis</div>
+            </div>
+            <div class="emerging-card">
+                <div class="emerging-icon">🎨</div>
+                <div class="emerging-name">Diseño & Creatividad</div>
+                <div class="emerging-example">Generación visual, branding</div>
+            </div>
+            <div class="emerging-card">
+                <div class="emerging-icon">📰</div>
+                <div class="emerging-name">Media & Periodismo</div>
+                <div class="emerging-example">Redacción, fact-checking</div>
+            </div>
+            <div class="emerging-card">
+                <div class="emerging-icon">🐕</div>
+                <div class="emerging-name">Veterinaria & Mascotas</div>
+                <div class="emerging-example">Diagnóstico, seguimiento</div>
+            </div>
+            <div class="emerging-card">
+                <div class="emerging-icon">📦</div>
+                <div class="emerging-name">Supply Chain</div>
+                <div class="emerging-example">Demand planning, routing</div>
+            </div>
+            <div class="emerging-card">
+                <div class="emerging-icon">🎤</div>
+                <div class="emerging-name">Eventos & MICE</div>
+                <div class="emerging-example">Matchmaking, gestión</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Universal Use Cases -->
+<section>
+    <div class="container">
+        <h2 class="section-title">Capacidades IA que Aplican a Cualquier Sector</h2>
+        <p class="section-subtitle">Independientemente de tu industria, estas capacidades pueden transformar tu negocio</p>
+        
+        <div class="sectors-grid">
+            <div class="sector-card">
+                <div class="sector-header">
+                    <div class="sector-icon">💬</div>
+                    <div class="sector-name">Atención al Cliente 24/7</div>
+                </div>
+                <p class="sector-desc">Chatbots inteligentes que resuelven dudas, califican leads y derivan a humanos solo cuando es necesario.</p>
+                <div class="sector-impact">
+                    <div class="impact-item"><span class="value">-70%</span><span class="label">tickets nivel 1</span></div>
+                    <div class="impact-item"><span class="value">24/7</span><span class="label">disponibilidad</span></div>
+                </div>
+            </div>
+            
+            <div class="sector-card">
+                <div class="sector-header">
+                    <div class="sector-icon">📄</div>
+                    <div class="sector-name">Procesamiento de Documentos</div>
+                </div>
+                <p class="sector-desc">Extrae datos de PDFs, facturas, contratos. Clasifica, resume y organiza documentación automáticamente.</p>
+                <div class="sector-impact">
+                    <div class="impact-item"><span class="value">-90%</span><span class="label">tiempo manual</span></div>
+                    <div class="impact-item"><span class="value">+95%</span><span class="label">precisión</span></div>
+                </div>
+            </div>
+            
+            <div class="sector-card">
+                <div class="sector-header">
+                    <div class="sector-icon">📞</div>
+                    <div class="sector-name">Llamadas Automáticas</div>
+                </div>
+                <p class="sector-desc">Recordatorios, cobros, confirmaciones y encuestas por teléfono con voz IA natural.</p>
+                <div class="sector-impact">
+                    <div class="impact-item"><span class="value">500</span><span class="label">llamadas/día</span></div>
+                    <div class="impact-item"><span class="value">+40%</span><span class="label">cobros</span></div>
+                </div>
+            </div>
+            
+            <div class="sector-card">
+                <div class="sector-header">
+                    <div class="sector-icon">📊</div>
+                    <div class="sector-name">Analytics Predictivo</div>
+                </div>
+                <p class="sector-desc">Dashboards que no solo muestran datos pasados, sino que predicen tendencias y sugieren acciones.</p>
+                <div class="sector-impact">
+                    <div class="impact-item"><span class="value">+30%</span><span class="label">decisiones acertadas</span></div>
+                    <div class="impact-item"><span class="value">Real-time</span><span class="label">insights</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-box">
+            <h2>¿No ves tu sector? Hablemos igualmente.</h2>
+            <p>La IA tiene aplicaciones en prácticamente cualquier industria. Cuéntanos tu caso y te diremos qué es posible.</p>
+            <a href="mailto:hola@appgile.com" class="btn">Explorar oportunidades →</a>
+            <p style="margin-top: 24px; font-size: 14px; color: var(--text-muted);">📧 hola@appgile.com · 📱 Telegram @Tomixter</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>© 2025 Appgile — Donde las ideas se convierten en productos</p>
+</footer>
+
+</body>
+</html>

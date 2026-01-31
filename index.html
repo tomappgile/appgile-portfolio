@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appgile — Transformamos Ideas en Productos con IA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --accent: #22d3ee;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --error: #ef4444;
+            --pink: #ec4899;
+            --purple: #a855f7;
+            --orange: #f97316;
+            --bg: #0a0a0f;
+            --bg-card: #111118;
+            --bg-card-hover: #16161f;
+            --border: rgba(255,255,255,0.08);
+            --text: #f8fafc;
+            --text-muted: #71717a;
+            --text-secondary: #a1a1aa;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'Inter', -apple-system, system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+        
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 24px; }
+
+        /* ===== HERO ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 60px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 30%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 70%, rgba(34, 211, 238, 0.05) 0%, transparent 50%);
+            animation: pulse 15s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .hero-content { position: relative; z-index: 1; }
+        
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-size: 14px;
+            color: var(--primary);
+            margin-bottom: 24px;
+        }
+        
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+        
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+        
+        .hero-stats {
+            display: flex;
+            gap: 48px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+        
+        .hero-stat { display: flex; flex-direction: column; }
+        
+        .hero-stat-value {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent), var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+        
+        .hero-stat-label {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+        
+        .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 16px;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            border: none;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(99, 102, 241, 0.5);
+        }
+        
+        .btn-secondary {
+            background: var(--bg-card);
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--primary);
+        }
+
+        /* ===== SECTIONS ===== */
+        section { padding: 100px 0; }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+        
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ===== FILTERS ===== */
+        .projects-filter {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 48px;
+        }
+        
+        .filter-btn {
+            padding: 10px 20px;
+            border-radius: 100px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .filter-btn:hover {
+            border-color: rgba(99, 102, 241, 0.5);
+            color: var(--text);
+            background: rgba(99, 102, 241, 0.05);
+        }
+        
+        .filter-btn.active {
+            border-color: var(--primary);
+            color: var(--primary);
+            background: rgba(99, 102, 241, 0.1);
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.2);
+        }
+        
+        .filter-count {
+            background: rgba(255,255,255,0.1);
+            padding: 2px 8px;
+            border-radius: 100px;
+            font-size: 12px;
+        }
+        
+        .filter-btn.active .filter-count {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* ===== PROJECT CARDS ===== */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 28px;
+        }
+        
+        @media (max-width: 500px) {
+            .projects-grid { grid-template-columns: 1fr; }
+        }
+        
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--card-accent, var(--primary)), var(--accent));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .project-card:hover {
+            border-color: rgba(99, 102, 241, 0.4);
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.4), 0 0 40px rgba(99, 102, 241, 0.1);
+        }
+        
+        .project-card:hover::before { opacity: 1; }
+        
+        /* Card Image */
+        .project-image-wrapper {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-image {
+            width: 100%;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .project-card:hover .project-image {
+            transform: scale(1.05);
+        }
+        
+        .project-image-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(10,10,15,0.9) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        /* Badges */
+        .project-badges {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            display: flex;
+            gap: 8px;
+            z-index: 2;
+        }
+        
+        .badge {
+            padding: 6px 12px;
+            border-radius: 100px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .badge-new {
+            background: linear-gradient(135deg, var(--success), #059669);
+            color: white;
+            animation: pulse-badge 2s infinite;
+        }
+        
+        @keyframes pulse-badge {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+            50% { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+        }
+        
+        .badge-featured {
+            background: linear-gradient(135deg, var(--warning), var(--orange));
+            color: white;
+        }
+        
+        .badge-popular {
+            background: linear-gradient(135deg, var(--pink), var(--purple));
+            color: white;
+        }
+        
+        /* Category Icon */
+        .category-icon {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 44px;
+            height: 44px;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            z-index: 2;
+        }
+        
+        /* Card Content */
+        .project-content {
+            padding: 24px;
+            position: relative;
+        }
+        
+        .project-category-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+            padding: 4px 10px;
+            border-radius: 6px;
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary);
+        }
+        
+        .project-category-label[data-cat="vision"] { background: rgba(34, 211, 238, 0.1); color: var(--accent); }
+        .project-category-label[data-cat="voice"] { background: rgba(168, 85, 247, 0.1); color: var(--purple); }
+        .project-category-label[data-cat="fintech"] { background: rgba(16, 185, 129, 0.1); color: var(--success); }
+        .project-category-label[data-cat="b2b"] { background: rgba(249, 115, 22, 0.1); color: var(--orange); }
+        .project-category-label[data-cat="healthtech"] { background: rgba(236, 72, 153, 0.1); color: var(--pink); }
+        
+        .project-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            line-height: 1.3;
+            transition: color 0.3s;
+        }
+        
+        .project-card:hover .project-title { color: var(--accent); }
+        
+        .project-subtitle {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+        
+        /* Metrics */
+        .project-metrics {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+        
+        .metric {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 14px;
+            background: rgba(16, 185, 129, 0.08);
+            border: 1px solid rgba(16, 185, 129, 0.15);
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--success);
+            transition: all 0.3s;
+        }
+        
+        .metric:hover {
+            background: rgba(16, 185, 129, 0.15);
+            transform: scale(1.02);
+        }
+        
+        .metric-icon {
+            font-size: 16px;
+        }
+        
+        /* Tags */
+        .project-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+        
+        .tag {
+            font-size: 12px;
+            font-weight: 500;
+            padding: 6px 12px;
+            border-radius: 8px;
+            transition: all 0.3s;
+            cursor: default;
+        }
+        
+        .tag-ai { background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(168, 85, 247, 0.15)); color: #a78bfa; border: 1px solid rgba(167, 139, 250, 0.2); }
+        .tag-api { background: rgba(34, 211, 238, 0.1); color: var(--accent); border: 1px solid rgba(34, 211, 238, 0.2); }
+        .tag-db { background: rgba(249, 115, 22, 0.1); color: var(--orange); border: 1px solid rgba(249, 115, 22, 0.2); }
+        .tag-ui { background: rgba(236, 72, 153, 0.1); color: var(--pink); border: 1px solid rgba(236, 72, 153, 0.2); }
+        .tag-realtime { background: rgba(16, 185, 129, 0.1); color: var(--success); border: 1px solid rgba(16, 185, 129, 0.2); }
+        .tag-default { background: rgba(255,255,255,0.05); color: var(--text-secondary); border: 1px solid rgba(255,255,255,0.1); }
+        
+        .tag:hover { transform: translateY(-2px); }
+        
+        /* Tech Stack Bar */
+        .tech-stack {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
+        }
+        
+        .tech-stack-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .tech-icons {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .tech-icon {
+            width: 28px;
+            height: 28px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        
+        .tech-icon:hover {
+            background: rgba(99, 102, 241, 0.2);
+            transform: scale(1.1);
+        }
+        
+        /* Card Footer */
+        .project-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 16px;
+        }
+        
+        .view-details {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary);
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.3s;
+        }
+        
+        .project-card:hover .view-details {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .view-details-arrow {
+            transition: transform 0.3s;
+        }
+        
+        .project-card:hover .view-details-arrow {
+            transform: translateX(4px);
+        }
+
+        /* ===== MODAL ===== */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+        
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.9);
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            overflow: hidden;
+            z-index: 1001;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(-50%, -50%) scale(1);
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background: rgba(0,0,0,0.5);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s;
+        }
+        
+        .modal-close:hover {
+            background: var(--primary);
+            transform: rotate(90deg);
+        }
+        
+        .modal-image {
+            width: 100%;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+        }
+        
+        .modal-content {
+            padding: 32px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
+        
+        .modal-title {
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+        
+        .modal-subtitle {
+            font-size: 1.1rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+        
+        .modal-description {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+        
+        .modal-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        
+        .modal-metric {
+            background: rgba(16, 185, 129, 0.08);
+            border: 1px solid rgba(16, 185, 129, 0.15);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+        }
+        
+        .modal-metric-value {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--success);
+        }
+        
+        .modal-metric-label {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+        
+        .modal-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        /* ===== CTA ===== */
+        .cta-section {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(34, 211, 238, 0.05) 100%);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 80px 40px;
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+        
+        .cta-section p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 32px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 32px;
+        }
+        
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .contact-link:hover {
+            border-color: var(--primary);
+            color: var(--text);
+            transform: translateY(-2px);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+        
+        footer p { color: var(--text-muted); font-size: 14px; }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .project-card {
+            animation: fadeInUp 0.6s ease-out backwards;
+        }
+        
+        .project-card:nth-child(1) { animation-delay: 0.1s; }
+        .project-card:nth-child(2) { animation-delay: 0.2s; }
+        .project-card:nth-child(3) { animation-delay: 0.3s; }
+        .project-card:nth-child(4) { animation-delay: 0.4s; }
+        .project-card:nth-child(5) { animation-delay: 0.5s; }
+        .project-card:nth-child(6) { animation-delay: 0.6s; }
+        
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .hero-stats { gap: 24px; }
+            .hero-stat-value { font-size: 2rem; }
+            section { padding: 60px 0; }
+            .projects-grid { grid-template-columns: 1fr; }
+            .modal { width: 95%; }
+            .modal-content { padding: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span>🚀</span>
+                <span>De idea a producto en semanas</span>
+            </div>
+            
+            <h1>Transformamos tu empresa<br>con <span>Inteligencia Artificial</span></h1>
+            
+            <p class="hero-subtitle">
+                Soluciones de IA aplicada que generan resultados desde el día uno. 
+                No vendemos demos — entregamos productos que funcionan y escalan.
+            </p>
+            
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="hero-stat-value">37</span>
+                    <span class="hero-stat-label">Proyectos Showcase</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-value">8+</span>
+                    <span class="hero-stat-label">Verticales</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-value">99.9%</span>
+                    <span class="hero-stat-label">Uptime</span>
+                </div>
+            </div>
+            
+            <div class="hero-cta">
+                <a href="#contacto" class="btn btn-primary">Hablemos de tu proyecto →</a>
+                <a href="#proyectos" class="btn btn-secondary">Ver portfolio</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="proyectos">
+    <div class="container">
+        <div class="section-header">
+            <h2>✨ Proyectos que Hablan por Sí Solos</h2>
+            <p>Cada proyecto es una historia de transformación. Haz clic para explorar.</p>
+        </div>
+        
+        <div class="projects-filter" id="filters"></div>
+        <div class="projects-grid" id="projectsGrid"></div>
+        
+        <div style="text-align: center; margin-top: 48px;">
+            <a href="#contacto" class="btn btn-primary">¿Tienes un proyecto similar? →</a>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section id="contacto">
+    <div class="container">
+        <div class="cta-section">
+            <h2>¿Listo para transformar tu empresa?</h2>
+            <p>Cuéntanos tu reto en 2 minutos. Te proponemos 3 soluciones concretas y elegimos juntos.</p>
+            
+            <a href="mailto:hola@appgile.com" class="btn btn-primary">Empezar conversación →</a>
+            
+            <div class="contact-links">
+                <a href="mailto:hola@appgile.com" class="contact-link">📧 hola@appgile.com</a>
+                <a href="https://t.me/Tomixter" class="contact-link">📱 Telegram @Tomixter</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>© 2025 Appgile — Donde las ideas se convierten en productos</p>
+    </div>
+</footer>
+
+<!-- Modal -->
+<div class="modal-overlay" id="modalOverlay"></div>
+<div class="modal" id="modal">
+    <button class="modal-close" id="modalClose">✕</button>
+    <img class="modal-image" id="modalImage" src="" alt="">
+    <div class="modal-content">
+        <div class="project-category-label" id="modalCategory"></div>
+        <h2 class="modal-title" id="modalTitle"></h2>
+        <p class="modal-subtitle" id="modalSubtitle"></p>
+        <p class="modal-description" id="modalDescription"></p>
+        <div class="modal-metrics" id="modalMetrics"></div>
+        <div class="modal-tags" id="modalTags"></div>
+    </div>
+</div>
+
+<script>
+// ===== PORTFOLIO DATA =====
+const PORTFOLIO_DATA = {
+    meta: {
+        company: "Appgile",
+        tagline: "Transformamos Ideas en Productos con IA"
+    },
+    projects: [
+        {
+            id: 1, name: "Los Cuchis - Festival Manager", title: "Gestión de Eventos en Tiempo Real", subtitle: "De caos organizativo a control total con gamificación",
+            description: "Un festival con múltiples cocinas, 50+ participantes y docenas de tareas puede convertirse en un caos. Este sistema de gestión gamificado permite coordinar equipos en tiempo real, con notificaciones push, sistema de puntos y progreso visual.",
+            metrics: ["-70% tiempo", "100% tareas OK"], tags: ["Event Tech", "Gamificación", "WebSockets", "Real-time"],
+            category: "events", icon: "🎪", badge: "featured", image: "images/01-cuchis-festmanager.png"
+        },
+        {
+            id: 2, name: "MudiIA", title: "De Fotos a Presupuesto en 30 Segundos", subtitle: "IA que ve tus objetos y calcula mudanzas",
+            description: "El cliente sube 5 fotos de su casa. La IA detecta cada item (sofá, TV, cajas...), calcula el volumen en m³ y genera presupuesto con desglose. Integración con Google Maps para rutas.",
+            metrics: ["30s vs 2h", "+95% precisión", "13+ obj/foto"], tags: ["OpenAI Vision", "Voice", "Google Maps"],
+            category: "vision", icon: "📦", badge: "popular", image: "images/02-amygo-mudiia.jpg"
+        },
+        {
+            id: 3, name: "IngredientHub", title: "Búsqueda de Ingredientes con IA", subtitle: "Encuentra cualquier ingrediente en segundos",
+            description: "Para empresas de alimentación. Búsqueda semántica: 'espesante vegano sin gluten' → resultados instantáneos con fichas técnicas y precios.",
+            metrics: ["25 ingredientes", "16 proveedores", "10x más rápido"], tags: ["Food Tech", "OpenAI", "PostgreSQL"],
+            category: "foodtech", icon: "🧪"
+        },
+        {
+            id: 4, name: "FormuladorIA", title: "Fórmulas Alimentarias por IA", subtitle: "De requisitos a receta optimizada con un prompt",
+            description: "El equipo de I+D describe: 'bebida energética sin azúcar, sabor tropical'. La IA genera fórmula completa con ingredientes, proporciones y coste.",
+            metrics: ["43 fórmulas", "8.6/10 calidad"], tags: ["GPT-4", "Food Science", "Workflow"],
+            category: "foodtech", icon: "🔬", image: "images/04-innpak-formuladoria.png"
+        },
+        {
+            id: 5, name: "MusicID", title: "Identifica Canciones de DJ Sets", subtitle: "Sube 2h de mix, recibe playlist en Spotify",
+            description: "DJs y creadores suben el archivo (MP3, WAV hasta 100MB), la IA identifica todas las canciones. Un click para exportar a Spotify.",
+            metrics: ["100MB máx", "Export Spotify"], tags: ["ACRCloud", "Spotify API", "Audio"],
+            category: "voice", icon: "🎵", image: "images/05-musicid-audiotrackdetect.png"
+        },
+        {
+            id: 6, name: "TaskMaster Pro", title: "Productividad Gamificada", subtitle: "Tareas + puntos + rachas = engagement",
+            description: "TaskMaster usa psicología de juegos: puntos, rachas diarias, niveles. Kanban con drag & drop, Pomodoro integrado.",
+            metrics: ["+85% retención", "Nivel 8", "12 días racha"], tags: ["Gamificación", "Kanban", "Pomodoro"],
+            category: "productivity", icon: "✅"
+        },
+        {
+            id: 7, name: "SoundScape", title: "Playlists Culturales por IA", subtitle: "Tokio → J-pop. Nashville → Country",
+            description: "Introduce ciudad y la IA genera playlist con artistas locales. Perfecto para viajeros y creadores de travel content.",
+            metrics: ["∞ destinos", "Export Spotify"], tags: ["Cultural AI", "Spotify", "Travel"],
+            category: "voice", icon: "🌍"
+        },
+        {
+            id: 8, name: "Webhook Tester", title: "Debug Webhooks en Tiempo Real", subtitle: "URLs compartibles, historial persistente",
+            description: "Crea URLs de webhook, recibe peticiones en tiempo real, inspecciona headers/body, copia como cURL.",
+            metrics: ["All HTTP methods", "WebSockets"], tags: ["Developer Tools", "WebSockets", "API"],
+            category: "devtools", icon: "🔧"
+        },
+        {
+            id: 9, name: "Conóceme Si Puedes", title: "Party Game Multiplayer", subtitle: "14 jugadores, minijuegos, tiempo real",
+            description: "Juego de fiesta: 'Reconoce al Jugador', trivial del grupo, 'Quién es más probable que...'. WebSockets para juego en vivo.",
+            metrics: ["14 players", "Real-time"], tags: ["Socket.IO", "Party Game", "Multiplayer"],
+            category: "gaming", icon: "🎮", badge: "new"
+        },
+        {
+            id: 10, name: "SoundBrand", title: "De Canción a Identidad de Marca", subtitle: "Sube audio, recibe logo y visuales IA",
+            description: "Sube canción, la IA analiza su esencia y genera: concepto de marca, 4 visuales con DALL-E, artistas similares.",
+            metrics: ["4+ visuales", "ID audio"], tags: ["DALL-E", "ACRCloud", "Branding"],
+            category: "creative", icon: "🎨"
+        },
+        {
+            id: 11, name: "LearnQuest", title: "LMS Gamificado", subtitle: "XP, niveles, insignias — formación que engancha",
+            description: "Los LMS tradicionales tienen 80% abandono. LearnQuest: XP por lección, niveles, insignias (Common→Legendary).",
+            metrics: ["+85% engagement", "4 badge tiers"], tags: ["EdTech", "Gamificación", "LMS"],
+            category: "edtech", icon: "📚", badge: "featured", image: "images/11-learnquest-lms.png"
+        },
+        {
+            id: 12, name: "SuperKid Avatar", title: "Niños → Superhéroes con IA", subtitle: "Sube foto, elige poder, recibe avatar épico",
+            description: "Los padres adoran ver a sus hijos como superhéroes. 5 estilos: Cosmic Powers, Tech Genius, Ghibli...",
+            metrics: ["5 estilos", "DALL-E"], tags: ["Kids App", "Image Gen", "Creative"],
+            category: "creative", icon: "🦸"
+        },
+        {
+            id: 13, name: "Wedding Website", title: "Web de Boda Premium", subtitle: "Countdown, agenda multi-día, hoteles",
+            description: "Countdown en vivo, agenda de días, transporte, hoteles con ratings, tips de seguridad para destinos exóticos.",
+            metrics: ["Countdown live", "Multi-día"], tags: ["Event Website", "i18n"],
+            category: "events", icon: "💒"
+        },
+        {
+            id: 14, name: "AI Call Assistant", title: "500 Llamadas/Día Automáticas", subtitle: "Cobros y citas con voz IA natural",
+            description: "Clínicas y gimnasios pierden dinero por citas olvidadas. Llamadas automáticas: recordatorios, cobros, confirmaciones.",
+            metrics: ["500 calls/día", "+40% cobros"], tags: ["Twilio", "LiveKit", "Voice AI"],
+            category: "voice", icon: "📞", badge: "popular", image: "images/14-ai-call-assistant.png"
+        },
+        {
+            id: 15, name: "AI Model Comparator", title: "GPT-4 vs Claude vs Gemini", subtitle: "Mismo prompt, múltiples modelos, lado a lado",
+            description: "Envía prompt a múltiples modelos simultáneamente. Catálogo con precios/1K tokens, contexto máximo, filtros.",
+            metrics: ["50+ modelos", "262K context"], tags: ["OpenRouter", "LLM", "DevTools"],
+            category: "devtools", icon: "⚖️"
+        },
+        {
+            id: 16, name: "Medea Mind", title: "IA para Psicólogos Clínicos", subtitle: "Diagnóstico diferencial y estrategias",
+            description: "4 modos: diagnóstico diferencial, estrategias terapéuticas, evaluación, intervención en crisis. No reemplaza — potencia.",
+            metrics: ["4 modos", "Historial casos"], tags: ["HealthTech", "Clinical AI", "Psychology"],
+            category: "healthtech", icon: "🧠", image: "images/16-medea-mind.png"
+        },
+        {
+            id: 17, name: "Formigal Sunseeker", title: "Predicción de Sol en Pistas", subtitle: "Sabe cuándo ir a la montaña para sol",
+            description: "Predicción 30 min: temperatura, viento, visibilidad, nubes. Navegador 8-48h, recomendación mejor momento.",
+            metrics: ["30 min precisión", "8-48h forecast"], tags: ["Weather API", "Ski", "Maps"],
+            category: "weather", icon: "⛷️"
+        },
+        {
+            id: 18, name: "Appgile Corporate", title: "Landing B2B que Convierte", subtitle: "500+ plugins, 150+ partners, 99.9% uptime",
+            description: "Web corporativa para plugins financieros embebibles. Showcase de productos, métricas de confianza, testimonios.",
+            metrics: ["500+ plugins", "99.9% uptime"], tags: ["B2B", "Fintech", "Landing"],
+            category: "b2b", icon: "🏢"
+        },
+        {
+            id: 19, name: "Fundación Teresa", title: "Web ONG Inclusión Tech", subtitle: "Conecta discapacidad con empleos tech",
+            description: "Landing para ONG: secciones empresas, centros formación, personas. Video, testimonios, CTAs a email y WhatsApp.",
+            metrics: ["3 audiencias", "Video integrado"], tags: ["NGO", "Accessibility", "Social"],
+            category: "social", icon: "💜"
+        },
+        {
+            id: 20, name: "Asesor Mercantil", title: "Regulaciones Multi-País con IA", subtitle: "Perú/Guatemala/México en segundos",
+            description: "Chatbot que genera tablas comparativas entre países, analiza regulaciones, da recomendaciones de negocio.",
+            metrics: ["3+ países", "Tablas comparativas"], tags: ["Business AI", "Legal", "Chatbot"],
+            category: "legaltech", icon: "⚖️"
+        },
+        {
+            id: 21, name: "Cosmic Night Design", title: "Sistema de Diseño Completo", subtitle: "Paleta, botones, forms, cards — documentado",
+            description: "Design system: paleta, tipografía, 6 botones, form controls, cards, alerts, badges, avatares. Docs interactivas.",
+            metrics: ["6 tipos botón", "10+ components"], tags: ["Design System", "UI", "Style Guide"],
+            category: "devtools", icon: "🎨"
+        },
+        {
+            id: 22, name: "Corazón Narrador", title: "Cuentos con tu Hijo de Protagonista", subtitle: "Sube foto, recibe historia mágica",
+            description: "Sube foto del niño, la IA genera historia donde él/ella es el héroe. Múltiples estilos, exportable para imprimir.",
+            metrics: ["∞ historias", "Exportable"], tags: ["Storytelling", "Kids", "Image Gen"],
+            category: "creative", icon: "📖"
+        },
+        {
+            id: 23, name: "Job Posting Generator", title: "Ofertas Técnicas con Métricas", subtitle: "De requisitos a job posting profesional",
+            description: "Genera ofertas: stack detallado, horas del proyecto, escenarios 6 vs 10 meses, KPIs de éxito.",
+            metrics: ["Stack detallado", "KPIs definidos"], tags: ["HR Tech", "Documentation"],
+            category: "hrtech", icon: "👔"
+        },
+        {
+            id: 24, name: "MudiIA Admin", title: "Panel de Tarifas Mudanzas", subtitle: "Configura precios, prueba al instante",
+            description: "Backend: tarifa base, precio/m³, manipulación, km, zonas, servicios, temporada, descuentos. Calculadora live.",
+            metrics: ["10+ variables", "Calculadora live"], tags: ["Admin Dashboard", "Pricing"],
+            category: "b2b", icon: "⚙️"
+        },
+        {
+            id: 25, name: "MudiIA Vision", title: "Análisis Visual de Objetos", subtitle: "5 fotos → 13+ objetos → volumen calculado",
+            description: "Usuario sube fotos. IA analiza mostrando progreso, contador objetos, tips contextuales.",
+            metrics: ["13+ obj/foto", "Tips contextuales"], tags: ["Computer Vision", "OpenAI Vision"],
+            category: "vision", icon: "👁️"
+        },
+        {
+            id: 26, name: "Weyeti", title: "Arquitectura Fintech 1,250 req/s", subtitle: "99.97% availability, 145ms response",
+            description: "Plataforma cotización financiera automotriz. PostgreSQL, Redis, RabbitMQ, S3. Diagrama visual completo.",
+            metrics: ["1,250 req/s", "99.97% uptime"], tags: ["Architecture", "Fintech", "Enterprise"],
+            category: "fintech", icon: "🏗️", badge: "featured", image: "images/26-weyeti-architecture.png"
+        },
+        {
+            id: 27, name: "Cardif Plugins", title: "Seguros para E-commerce LATAM", subtitle: "4 productos, 6 países, 15 min integración",
+            description: "Plugins de seguros para checkout: Prestamista, Garantía Extendida, Vida Crédito, Protección Desempleo.",
+            metrics: ["6 países", "15 min setup"], tags: ["InsurTech", "B2B", "LATAM"],
+            category: "b2b", icon: "🛡️", image: "images/27-cardif-insurance-plugins.jpg"
+        },
+        {
+            id: 28, name: "Cardif Portal", title: "Dashboard B2B Partners", subtitle: "24 partners, 156 plugins, un panel",
+            description: "Portal admin: partners activos, plugins desplegados, integraciones live, acciones pendientes, feed actividad.",
+            metrics: ["24 partners", "89 integraciones"], tags: ["Partner Mgmt", "Dashboard", "Analytics"],
+            category: "b2b", icon: "📊"
+        },
+        {
+            id: 29, name: "Cardif Landing", title: "Landing Embedded Insurance", subtitle: "Mercado Libre, Nu Bank, Rappi lo usan",
+            description: "Página ventas B2B: 6+ productos, 6 países, 4 modos integración. Logos partners reconocidos como social proof.",
+            metrics: ["6+ productos", "<15 min"], tags: ["B2B Marketing", "InsurTech"],
+            category: "b2b", icon: "🚀"
+        },
+        {
+            id: 30, name: "Cardif Docs", title: "Developer Docs con Tester Live", subtitle: "Lee, configura, prueba — en una página",
+            description: "Docs para integrar plugins: coberturas, ubicaciones, tester en vivo, snippets React/JS/Angular.",
+            metrics: ["3 frameworks", "Tester live"], tags: ["Developer Docs", "API Reference"],
+            category: "devtools", icon: "📚"
+        },
+        {
+            id: 31, name: "Security Scanner", title: "Vulnerabilidades NPM en 1 Click", subtitle: "Encuentra dependencias inseguras",
+            description: "DevSecOps: escanea package.json, detecta vulnerables, muestra IoCs, genera reportes. SECURE/WARNING/CRITICAL.",
+            metrics: ["27+ packages", "IoCs detectados"], tags: ["Security", "NPM Audit", "DevSecOps"],
+            category: "devtools", icon: "🔒", image: "images/31-security-scanner.jpg"
+        },
+        {
+            id: 32, name: "AMYGO Contact", title: "Formulario Leads Multi-Step", subtitle: "Convierte visitantes en leads cualificados",
+            description: "Sistema captación: formulario multi-step, progreso visual, validación tiempo real, integración backend.",
+            metrics: ["Multi-step", "Validación live"], tags: ["Lead Gen", "Forms", "Conversion"],
+            category: "marketing", icon: "📝"
+        },
+        {
+            id: 33, name: "TaxAI", title: "Entiende Hacienda en 15s", subtitle: "Sube PDF, la IA te explica qué hacer",
+            description: "Las cartas de Hacienda generan ansiedad. Sube PDF → explicación clara, plazos, opciones, enlaces Sede Electrónica.",
+            metrics: ["Análisis 15s", "Plazos auto"], tags: ["LegalTech", "Document AI", "PDF"],
+            category: "legaltech", icon: "📄", badge: "new", image: "images/33-taxai-hacienda.jpg"
+        },
+        {
+            id: 34, name: "MarketMind", title: "Dashboard Bolsa + Sentimiento IA", subtitle: "Encuentra oportunidades de dividendo",
+            description: "Dashboard inversores: mayor yield, top performer 24h, sentimiento mercado. Filtros exchange, dividendos >6%.",
+            metrics: ["Real-time", "Sentiment AI"], tags: ["Fintech", "Stock Market", "AI"],
+            category: "fintech", icon: "📈", image: "images/34-marketmind-stocks.png"
+        },
+        {
+            id: 35, name: "DiviSearch", title: "Dividendos hasta 18.5% Global", subtitle: "Screener: US, UK, EU, Asia, LATAM",
+            description: "Buscador dividendos: filtros región, yield mínimo, frecuencia. Tarjetas detalladas, Aristócratas destacados.",
+            metrics: ["5 regiones", "18.5% yield máx"], tags: ["Fintech", "Dividends", "Global"],
+            category: "fintech", icon: "💰"
+        },
+        {
+            id: 36, name: "DDR to HU", title: "Documento → User Stories", subtitle: "Claude lee tu DDR y genera historias ágiles",
+            description: "Product Managers: sube PDF/DOCX/TXT, Claude extrae estructura, genera stories con criterios aceptación.",
+            metrics: ["PDF/DOCX/TXT", "Criterios AC"], tags: ["Agile", "Claude", "PM Tools"],
+            category: "devtools", icon: "📋", image: "images/36-ddr-to-hu.png"
+        },
+        {
+            id: 37, name: "GeminiStudio", title: "Chat con Google Gemini", subtitle: "Tu propio ChatGPT con modelos Gemini",
+            description: "Interfaz chat Gemini API. Selector modelo Flash/Pro, historial local, API key configurable. Diseño minimalista.",
+            metrics: ["Flash/Pro", "Historial local"], tags: ["Google Gemini", "Chat UI"],
+            category: "devtools", icon: "💬"
+        }
+    ],
+    categories: [
+        { id: "all", label: "Todos", icon: "🌟" },
+        { id: "vision", label: "Computer Vision", icon: "👁️" },
+        { id: "voice", label: "Voice & Audio", icon: "🎤" },
+        { id: "fintech", label: "Fintech", icon: "💳" },
+        { id: "b2b", label: "B2B / SaaS", icon: "🏢" },
+        { id: "healthtech", label: "HealthTech", icon: "🏥" },
+        { id: "edtech", label: "EdTech", icon: "📚" },
+        { id: "devtools", label: "Dev Tools", icon: "🔧" },
+        { id: "creative", label: "Creative AI", icon: "🎨" },
+        { id: "legaltech", label: "LegalTech", icon: "⚖️" },
+        { id: "foodtech", label: "Food Tech", icon: "🍽️" }
+    ]
+};
+
+window.PORTFOLIO_DATA = PORTFOLIO_DATA;
+
+// ===== RENDER FUNCTIONS =====
+const tagTypes = {
+    ai: ['OpenAI', 'GPT-4', 'Claude', 'DALL-E', 'Gemini', 'Vision', 'AI', 'LLM'],
+    api: ['API', 'Spotify', 'Maps', 'Twilio', 'ACRCloud', 'WebSockets', 'Socket.IO'],
+    db: ['PostgreSQL', 'Redis', 'Drizzle'],
+    realtime: ['Real-time', 'WebSockets', 'Socket.IO', 'LiveKit'],
+    ui: ['React', 'Kanban', 'UI', 'Design']
+};
+
+function getTagClass(tag) {
+    for (const [type, keywords] of Object.entries(tagTypes)) {
+        if (keywords.some(k => tag.toLowerCase().includes(k.toLowerCase()))) {
+            return `tag-${type}`;
+        }
+    }
+    return 'tag-default';
+}
+
+function renderFilters() {
+    const container = document.getElementById('filters');
+    const counts = { all: PORTFOLIO_DATA.projects.length };
+    
+    PORTFOLIO_DATA.projects.forEach(p => {
+        counts[p.category] = (counts[p.category] || 0) + 1;
+    });
+    
+    container.innerHTML = PORTFOLIO_DATA.categories.map(cat => `
+        <button class="filter-btn ${cat.id === 'all' ? 'active' : ''}" data-filter="${cat.id}">
+            <span>${cat.icon}</span>
+            <span>${cat.label}</span>
+            <span class="filter-count">${counts[cat.id] || 0}</span>
+        </button>
+    `).join('');
+    
+    container.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            container.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            filterProjects(btn.dataset.filter);
+        });
+    });
+}
+
+function renderProjects(projects) {
+    const grid = document.getElementById('projectsGrid');
+    
+    grid.innerHTML = projects.map(p => `
+        <div class="project-card" data-id="${p.id}" data-category="${p.category}" style="--card-accent: ${getAccentColor(p.category)}">
+            <div class="project-image-wrapper">
+                <img class="project-image" src="${p.image || `https://picsum.photos/seed/${p.id}/800/450`}" alt="${p.name}" loading="lazy">
+                <div class="project-image-overlay"></div>
+                <div class="project-badges">
+                    ${p.badge === 'new' ? '<span class="badge badge-new">✨ Nuevo</span>' : ''}
+                    ${p.badge === 'featured' ? '<span class="badge badge-featured">⭐ Destacado</span>' : ''}
+                    ${p.badge === 'popular' ? '<span class="badge badge-popular">🔥 Popular</span>' : ''}
+                </div>
+                <div class="category-icon">${p.icon}</div>
+            </div>
+            <div class="project-content">
+                <div class="project-category-label" data-cat="${p.category}">${getCategoryLabel(p.category)}</div>
+                <h3 class="project-title">${p.title}</h3>
+                <p class="project-subtitle">${p.subtitle}</p>
+                <div class="project-metrics">
+                    ${p.metrics.slice(0, 3).map(m => `<span class="metric"><span class="metric-icon">📊</span>${m}</span>`).join('')}
+                </div>
+                <div class="project-tags">
+                    ${p.tags.slice(0, 4).map(t => `<span class="tag ${getTagClass(t)}">${t}</span>`).join('')}
+                </div>
+                <div class="project-footer">
+                    <div class="tech-stack">
+                        <span class="tech-stack-label">Stack</span>
+                        <div class="tech-icons">
+                            ${p.tags.slice(0, 3).map(t => `<span class="tech-icon" title="${t}">${getTagEmoji(t)}</span>`).join('')}
+                        </div>
+                    </div>
+                    <span class="view-details">
+                        Ver detalles
+                        <span class="view-details-arrow">→</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    `).join('');
+    
+    // Add click handlers
+    grid.querySelectorAll('.project-card').forEach(card => {
+        card.addEventListener('click', () => openModal(parseInt(card.dataset.id)));
+    });
+}
+
+function filterProjects(category) {
+    const filtered = category === 'all' 
+        ? PORTFOLIO_DATA.projects 
+        : PORTFOLIO_DATA.projects.filter(p => p.category === category);
+    renderProjects(filtered);
+}
+
+function getCategoryLabel(cat) {
+    const found = PORTFOLIO_DATA.categories.find(c => c.id === cat);
+    return found ? `${found.icon} ${found.label}` : cat;
+}
+
+function getAccentColor(cat) {
+    const colors = {
+        vision: '#22d3ee', voice: '#a855f7', fintech: '#10b981',
+        b2b: '#f97316', healthtech: '#ec4899', edtech: '#6366f1',
+        devtools: '#22d3ee', creative: '#f59e0b', legaltech: '#6366f1',
+        foodtech: '#10b981'
+    };
+    return colors[cat] || '#6366f1';
+}
+
+function getTagEmoji(tag) {
+    const emojis = {
+        'OpenAI': '🤖', 'GPT-4': '🧠', 'Claude': '🟠', 'Vision': '👁️',
+        'Spotify': '🎵', 'Maps': '🗺️', 'Twilio': '📞', 'PostgreSQL': '🐘',
+        'Redis': '⚡', 'React': '⚛️', 'WebSockets': '🔌', 'DALL-E': '🎨',
+        'Socket.IO': '🔗', 'LiveKit': '📹', 'API': '🔗', 'AI': '🤖'
+    };
+    for (const [key, emoji] of Object.entries(emojis)) {
+        if (tag.toLowerCase().includes(key.toLowerCase())) return emoji;
+    }
+    return '⚙️';
+}
+
+// ===== MODAL =====
+function openModal(id) {
+    const project = PORTFOLIO_DATA.projects.find(p => p.id === id);
+    if (!project) return;
+    
+    document.getElementById('modalImage').src = project.image || `https://picsum.photos/seed/${id}/800/450`;
+    document.getElementById('modalCategory').innerHTML = getCategoryLabel(project.category);
+    document.getElementById('modalCategory').dataset.cat = project.category;
+    document.getElementById('modalTitle').textContent = project.title;
+    document.getElementById('modalSubtitle').textContent = project.subtitle;
+    document.getElementById('modalDescription').textContent = project.description;
+    
+    document.getElementById('modalMetrics').innerHTML = project.metrics.map(m => `
+        <div class="modal-metric">
+            <div class="modal-metric-value">${m.split(' ')[0]}</div>
+            <div class="modal-metric-label">${m.split(' ').slice(1).join(' ') || m}</div>
+        </div>
+    `).join('');
+    
+    document.getElementById('modalTags').innerHTML = project.tags.map(t => 
+        `<span class="tag ${getTagClass(t)}">${t}</span>`
+    ).join('');
+    
+    document.getElementById('modalOverlay').classList.add('active');
+    document.getElementById('modal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+    document.getElementById('modalOverlay').classList.remove('active');
+    document.getElementById('modal').classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+document.getElementById('modalOverlay').addEventListener('click', closeModal);
+document.getElementById('modalClose').addEventListener('click', closeModal);
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+// ===== INIT =====
+renderFilters();
+renderProjects(PORTFOLIO_DATA.projects);
+
+console.log('🚀 Portfolio loaded:', PORTFOLIO_DATA.projects.length, 'projects');
+</script>
+
+</body>
+</html>

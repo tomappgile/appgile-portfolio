@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Valor de la IA para tu Empresa — Por Qué No Puedes Esperar | Appgile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --accent: #22d3ee;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --bg: #0a0a0f;
+            --bg-card: #111118;
+            --border: rgba(255,255,255,0.06);
+            --text: #f8fafc;
+            --text-muted: #71717a;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+        
+        /* Hero */
+        .hero {
+            padding: 100px 0 80px;
+            text-align: center;
+            background: radial-gradient(ellipse at 50% 0%, rgba(99,102,241,0.15) 0%, transparent 60%);
+        }
+        
+        .hero-warning {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            color: #fca5a5;
+            padding: 10px 20px;
+            border-radius: 100px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+        
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 900;
+            line-height: 1.15;
+            margin-bottom: 24px;
+        }
+        
+        .hero h1 span { color: var(--accent); }
+        
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 750px;
+            margin: 0 auto;
+        }
+        
+        /* Stats Bar */
+        .stats-bar {
+            background: var(--bg-card);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 40px 0;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            text-align: center;
+        }
+        
+        .stat-item {}
+        .stat-value { font-size: 2.5rem; font-weight: 800; color: var(--accent); line-height: 1; }
+        .stat-label { font-size: 14px; color: var(--text-muted); margin-top: 8px; }
+        .stat-source { font-size: 11px; color: var(--text-muted); opacity: 0.6; margin-top: 4px; }
+        
+        /* Sections */
+        section { padding: 80px 0; }
+        
+        .section-title {
+            font-size: 2rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 48px;
+        }
+        
+        /* Benefits Grid */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+        
+        .benefit-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 32px;
+            transition: all 0.3s;
+        }
+        
+        .benefit-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-4px);
+        }
+        
+        .benefit-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, rgba(99,102,241,0.2), rgba(34,211,238,0.1));
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            margin-bottom: 20px;
+        }
+        
+        .benefit-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        
+        .benefit-card p {
+            color: var(--text-muted);
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .benefit-metrics {
+            display: flex;
+            gap: 24px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
+        }
+        
+        .benefit-metric {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .benefit-metric .value {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--success);
+        }
+        
+        .benefit-metric .label {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+        
+        /* Comparison */
+        .comparison-section {
+            background: linear-gradient(180deg, rgba(99,102,241,0.03) 0%, transparent 100%);
+        }
+        
+        .comparison-table {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        
+        .comparison-header {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            background: rgba(99,102,241,0.1);
+            padding: 20px 24px;
+            font-weight: 700;
+        }
+        
+        .comparison-header span:not(:first-child) { text-align: center; }
+        
+        .comparison-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            padding: 16px 24px;
+            border-top: 1px solid var(--border);
+            align-items: center;
+        }
+        
+        .comparison-row:hover { background: rgba(255,255,255,0.02); }
+        
+        .comparison-row .metric { color: var(--text-muted); font-size: 15px; }
+        .comparison-row .without { text-align: center; color: var(--danger); font-weight: 600; }
+        .comparison-row .with { text-align: center; color: var(--success); font-weight: 600; }
+        
+        /* ROI Calculator */
+        .roi-section { background: var(--bg-card); border-radius: 24px; padding: 48px; margin: 48px 0; }
+        
+        .roi-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+        
+        .roi-subtitle {
+            color: var(--text-muted);
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        
+        .roi-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        
+        .roi-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+        }
+        
+        .roi-card h4 { font-size: 14px; color: var(--text-muted); margin-bottom: 12px; }
+        .roi-card .number { font-size: 2rem; font-weight: 800; color: var(--accent); }
+        .roi-card .detail { font-size: 13px; color: var(--text-muted); margin-top: 8px; }
+        
+        /* Risks */
+        .risks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        
+        .risk-card {
+            background: rgba(239, 68, 68, 0.05);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            border-radius: 16px;
+            padding: 24px;
+        }
+        
+        .risk-card h4 {
+            color: #fca5a5;
+            font-size: 1rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .risk-card p { color: var(--text-muted); font-size: 14px; }
+        
+        /* Competitive */
+        .competitive-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+        
+        .competitive-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px;
+        }
+        
+        .competitive-card.advantage { border-left: 4px solid var(--success); }
+        .competitive-card.disadvantage { border-left: 4px solid var(--danger); }
+        
+        .competitive-card h4 {
+            font-size: 1rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .competitive-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .competitive-card li {
+            padding: 6px 0;
+            color: var(--text-muted);
+            font-size: 14px;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        
+        /* Timeline */
+        .timeline-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        
+        .timeline-item {
+            text-align: center;
+            padding: 24px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+        }
+        
+        .timeline-period {
+            font-size: 12px;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+        
+        .timeline-item h4 { margin-bottom: 8px; }
+        .timeline-item p { color: var(--text-muted); font-size: 13px; }
+        
+        /* Quote */
+        .quote-section {
+            background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(34,211,238,0.05));
+            border-radius: 24px;
+            padding: 48px;
+            text-align: center;
+            margin: 48px 0;
+        }
+        
+        .quote-text {
+            font-size: 1.5rem;
+            font-weight: 600;
+            font-style: italic;
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+        
+        .quote-author { color: var(--text-muted); }
+        
+        /* CTA */
+        .cta-section {
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .cta-box {
+            background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(34,211,238,0.05));
+            border: 1px solid rgba(99,102,241,0.2);
+            border-radius: 24px;
+            padding: 60px 40px;
+        }
+        
+        .cta-box h2 { font-size: 2rem; margin-bottom: 16px; }
+        .cta-box p { color: var(--text-muted); margin-bottom: 32px; font-size: 1.1rem; }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), #4f46e5);
+            color: white;
+            padding: 18px 40px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.2s;
+        }
+        
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(99,102,241,0.3); }
+        
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .comparison-header, .comparison-row { grid-template-columns: 1.5fr 1fr 1fr; font-size: 14px; }
+            .roi-grid { grid-template-columns: 1fr; }
+            .competitive-grid { grid-template-columns: 1fr; }
+            .timeline-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-warning">
+            ⚠️ El 77% de empresas planean adoptar IA antes de 2026 — ¿Y tú?
+        </div>
+        <h1>La IA No Es el Futuro.<br><span>Es la Ventaja Competitiva de Hoy.</span></h1>
+        <p>Las empresas que integran IA en sus operaciones están superando a su competencia en velocidad, costes y experiencia de cliente. La pregunta no es si deberías adoptar IA, sino cuánto estás perdiendo cada día que esperas.</p>
+    </div>
+</section>
+
+<!-- Stats Bar -->
+<div class="stats-bar">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-value">40%</div>
+                <div class="stat-label">Reducción media de costes operativos</div>
+                <div class="stat-source">McKinsey, 2024</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">3x</div>
+                <div class="stat-label">Más rápido en time-to-market</div>
+                <div class="stat-source">Deloitte AI Institute</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">+35%</div>
+                <div class="stat-label">Aumento en productividad</div>
+                <div class="stat-source">MIT Sloan, 2024</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">6-12</div>
+                <div class="stat-label">Meses para ROI positivo</div>
+                <div class="stat-source">Harvard Business Review</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Benefits -->
+<section>
+    <div class="container">
+        <h2 class="section-title">Beneficios Concretos de Implementar IA</h2>
+        <p class="section-subtitle">No hablamos de promesas vagas. Estos son los resultados medibles que ven nuestros clientes.</p>
+        
+        <div class="benefits-grid">
+            
+            <div class="benefit-card">
+                <div class="benefit-icon">⚡</div>
+                <h3>Automatización de Tareas Repetitivas</h3>
+                <p>Libera a tu equipo de trabajo manual tedioso. La IA procesa documentos, responde emails, actualiza bases de datos y genera informes mientras tu equipo se enfoca en trabajo de alto valor.</p>
+                <div class="benefit-metrics">
+                    <div class="benefit-metric">
+                        <span class="value">-70%</span>
+                        <span class="label">Tiempo en tareas admin</span>
+                    </div>
+                    <div class="benefit-metric">
+                        <span class="value">24/7</span>
+                        <span class="label">Operación continua</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="benefit-card">
+                <div class="benefit-icon">💰</div>
+                <h3>Reducción Drástica de Costes</h3>
+                <p>Menos errores humanos, menos personal para tareas repetitivas, menos tiempo de procesamiento. La IA hace en segundos lo que antes tardaba horas, con mayor precisión.</p>
+                <div class="benefit-metrics">
+                    <div class="benefit-metric">
+                        <span class="value">-40%</span>
+                        <span class="label">Costes operativos</span>
+                    </div>
+                    <div class="benefit-metric">
+                        <span class="value">-90%</span>
+                        <span class="label">Errores de proceso</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="benefit-card">
+                <div class="benefit-icon">📈</div>
+                <h3>Decisiones Basadas en Datos</h3>
+                <p>La IA analiza millones de datos en tiempo real para detectar patrones, predecir tendencias y recomendar acciones. Decisiones informadas, no corazonadas.</p>
+                <div class="benefit-metrics">
+                    <div class="benefit-metric">
+                        <span class="value">+30%</span>
+                        <span class="label">Precisión en decisiones</span>
+                    </div>
+                    <div class="benefit-metric">
+                        <span class="value">Real-time</span>
+                        <span class="label">Insights</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="benefit-card">
+                <div class="benefit-icon">😊</div>
+                <h3>Experiencia de Cliente Superior</h3>
+                <p>Atención 24/7, respuestas instantáneas, personalización a escala. Tus clientes reciben el servicio que esperan, cuando lo esperan, sin esperas ni frustraciones.</p>
+                <div class="benefit-metrics">
+                    <div class="benefit-metric">
+                        <span class="value">+45%</span>
+                        <span class="label">Satisfacción cliente</span>
+                    </div>
+                    <div class="benefit-metric">
+                        <span class="value">&lt;30s</span>
+                        <span class="label">Tiempo respuesta</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="benefit-card">
+                <div class="benefit-icon">🚀</div>
+                <h3>Escalar Sin Proporcionalidad</h3>
+                <p>Tradicionalmente, más clientes = más empleados. Con IA, puedes 10x tu volumen sin 10x tu equipo. Escala inteligente, no fuerza bruta.</p>
+                <div class="benefit-metrics">
+                    <div class="benefit-metric">
+                        <span class="value">10x</span>
+                        <span class="label">Capacidad sin 10x coste</span>
+                    </div>
+                    <div class="benefit-metric">
+                        <span class="value">Elástico</span>
+                        <span class="label">Crece bajo demanda</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="benefit-card">
+                <div class="benefit-icon">🎯</div>
+                <h3>Ventaja Competitiva Real</h3>
+                <p>Mientras tu competencia sigue haciendo las cosas "como siempre", tú respondes más rápido, cometes menos errores y ofreces mejor servicio. La diferencia se nota.</p>
+                <div class="benefit-metrics">
+                    <div class="benefit-metric">
+                        <span class="value">+25%</span>
+                        <span class="label">Cuota de mercado</span>
+                    </div>
+                    <div class="benefit-metric">
+                        <span class="value">Diferenciación</span>
+                        <span class="label">Tangible</span>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+<!-- Comparison -->
+<section class="comparison-section">
+    <div class="container">
+        <h2 class="section-title">Con IA vs. Sin IA: La Diferencia es Brutal</h2>
+        <p class="section-subtitle">Comparación real de procesos empresariales comunes</p>
+        
+        <div class="comparison-table">
+            <div class="comparison-header">
+                <span>Proceso</span>
+                <span>❌ Sin IA</span>
+                <span>✅ Con IA</span>
+            </div>
+            
+            <div class="comparison-row">
+                <span class="metric">Responder email de cliente</span>
+                <span class="without">2-24 horas</span>
+                <span class="with">&lt;30 segundos</span>
+            </div>
+            
+            <div class="comparison-row">
+                <span class="metric">Procesar una factura</span>
+                <span class="without">15-30 minutos</span>
+                <span class="with">10 segundos</span>
+            </div>
+            
+            <div class="comparison-row">
+                <span class="metric">Generar presupuesto personalizado</span>
+                <span class="without">1-2 horas</span>
+                <span class="with">30 segundos</span>
+            </div>
+            
+            <div class="comparison-row">
+                <span class="metric">Analizar 1000 CVs</span>
+                <span class="without">40 horas</span>
+                <span class="with">5 minutos</span>
+            </div>
+            
+            <div class="comparison-row">
+                <span class="metric">Detectar anomalía en datos</span>
+                <span class="without">Días/semanas</span>
+                <span class="with">Tiempo real</span>
+            </div>
+            
+            <div class="comparison-row">
+                <span class="metric">Atención al cliente nocturna</span>
+                <span class="without">No disponible</span>
+                <span class="with">24/7 automático</span>
+            </div>
+            
+            <div class="comparison-row">
+                <span class="metric">Traducir documento técnico</span>
+                <span class="without">1-2 días</span>
+                <span class="with">1 minuto</span>
+            </div>
+            
+            <div class="comparison-row">
+                <span class="metric">Predecir demanda mensual</span>
+                <span class="without">Estimación manual</span>
+                <span class="with">95% precisión</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ROI -->
+<section>
+    <div class="container">
+        <div class="roi-section">
+            <h3 class="roi-title">💰 El ROI de la IA es Real y Medible</h3>
+            <p class="roi-subtitle">Ejemplo: Empresa de servicios con 50 empleados</p>
+            
+            <div class="roi-grid">
+                <div class="roi-card">
+                    <h4>Inversión Inicial</h4>
+                    <div class="number">€15,000</div>
+                    <div class="detail">MVP + 3 meses de soporte</div>
+                </div>
+                <div class="roi-card">
+                    <h4>Ahorro Anual</h4>
+                    <div class="number">€72,000</div>
+                    <div class="detail">2 FTE equivalentes + errores evitados</div>
+                </div>
+                <div class="roi-card">
+                    <h4>ROI Primer Año</h4>
+                    <div class="number">380%</div>
+                    <div class="detail">Recuperas inversión en 2.5 meses</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Risks of NOT adopting -->
+<section>
+    <div class="container">
+        <h2 class="section-title">⚠️ El Coste de NO Adoptar IA</h2>
+        <p class="section-subtitle">No hacer nada también tiene un precio — y es más alto de lo que crees</p>
+        
+        <div class="risks-grid">
+            <div class="risk-card">
+                <h4>❌ Pérdida de Competitividad</h4>
+                <p>Mientras tu competencia automatiza y optimiza, tú sigues con procesos lentos y costosos. La brecha aumenta cada mes.</p>
+            </div>
+            <div class="risk-card">
+                <h4>❌ Talento que se Va</h4>
+                <p>Los mejores profesionales no quieren hacer trabajo repetitivo. Sin IA, pierdes a tu mejor gente por aburrimiento.</p>
+            </div>
+            <div class="risk-card">
+                <h4>❌ Clientes Insatisfechos</h4>
+                <p>Tus clientes ya están acostumbrados a respuestas instantáneas. Si no puedes darlas, irán a quien sí pueda.</p>
+            </div>
+            <div class="risk-card">
+                <h4>❌ Costes que Solo Suben</h4>
+                <p>Sin automatización, cada nuevo cliente significa más personal. Tu estructura de costes no escala.</p>
+            </div>
+            <div class="risk-card">
+                <h4>❌ Decisiones a Ciegas</h4>
+                <p>Sin análisis de datos inteligente, tomas decisiones basadas en intuición mientras otros usan predicciones.</p>
+            </div>
+            <div class="risk-card">
+                <h4>❌ Obsolescencia Acelerada</h4>
+                <p>La adopción de IA se está acelerando exponencialmente. Cada año que esperas, más difícil será alcanzar a los líderes.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Competitive Position -->
+<section>
+    <div class="container">
+        <h2 class="section-title">Tu Posición Competitiva Depende de Esta Decisión</h2>
+        <p class="section-subtitle">En 2-3 años, las empresas se dividirán en dos grupos</p>
+        
+        <div class="competitive-grid">
+            <div class="competitive-card advantage">
+                <h4>✅ Empresas con IA</h4>
+                <ul>
+                    <li>✓ Operan 24/7 sin coste proporcional</li>
+                    <li>✓ Responden a clientes en segundos</li>
+                    <li>✓ Predicen problemas antes de que ocurran</li>
+                    <li>✓ Escalan sin añadir headcount lineal</li>
+                    <li>✓ Toman decisiones basadas en datos</li>
+                    <li>✓ Atraen y retienen mejor talento</li>
+                    <li>✓ Márgenes cada vez mejores</li>
+                    <li>✓ Innovan más rápido que la competencia</li>
+                </ul>
+            </div>
+            <div class="competitive-card disadvantage">
+                <h4>❌ Empresas sin IA</h4>
+                <ul>
+                    <li>✗ Limitadas a horario laboral humano</li>
+                    <li>✗ Tiempos de respuesta de horas/días</li>
+                    <li>✗ Reaccionan cuando ya es tarde</li>
+                    <li>✗ Cada cliente nuevo = más empleados</li>
+                    <li>✗ Decisiones por intuición o histórico</li>
+                    <li>✗ Talento frustrado por trabajo repetitivo</li>
+                    <li>✗ Márgenes comprimidos por costes</li>
+                    <li>✗ Siempre un paso detrás</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Timeline of Value -->
+<section>
+    <div class="container">
+        <h2 class="section-title">Cuándo Verás Resultados</h2>
+        <p class="section-subtitle">La IA no es un proyecto de 2 años. Los beneficios empiezan desde el mes 1.</p>
+        
+        <div class="timeline-grid">
+            <div class="timeline-item">
+                <div class="timeline-period">Mes 1-2</div>
+                <h4>Quick Wins</h4>
+                <p>Automatizas 1-2 procesos críticos. Tu equipo ve resultados inmediatos.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-period">Mes 3-4</div>
+                <h4>Eficiencia</h4>
+                <p>Los ahorros de tiempo se traducen en ahorro de costes medible.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-period">Mes 5-6</div>
+                <h4>ROI Positivo</h4>
+                <p>La inversión se ha recuperado. Todo lo que viene ahora es ganancia.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-period">Mes 7+</div>
+                <h4>Transformación</h4>
+                <p>La IA ya es parte de tu ADN. Escalas y compites en otra liga.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Quote -->
+<div class="container">
+    <div class="quote-section">
+        <p class="quote-text">"La IA no va a reemplazar tu empresa. Pero una empresa que use IA sí puede reemplazar a la tuya."</p>
+        <p class="quote-author">— La realidad del mercado en 2025</p>
+    </div>
+</div>
+
+<!-- What We Offer -->
+<section>
+    <div class="container">
+        <h2 class="section-title">Lo que Appgile Aporta a Tu Empresa</h2>
+        <p class="section-subtitle">No solo tecnología — un partner que entiende tu negocio</p>
+        
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon">🎯</div>
+                <h3>Enfoque en ROI, No en Tech</h3>
+                <p>No te vendemos la última moda de IA. Identificamos los procesos donde la IA tiene mayor impacto en TU negocio y empezamos por ahí.</p>
+            </div>
+            
+            <div class="benefit-card">
+                <div class="benefit-icon">⚡</div>
+                <h3>Velocidad de Ejecución</h3>
+                <p>MVP en 2-4 semanas, no en 6 meses. Validamos rápido, iteramos rápido, y ves resultados antes de que termine el trimestre.</p>
+            </div>
+            
+            <div class="benefit-card">
+                <div class="benefit-icon">🔧</div>
+                <h3>Expertise Full-Stack IA</h3>
+                <p>180+ proyectos en 15 sectores. Vision, voz, NLP, generación, analytics — lo que necesites, lo hemos hecho.</p>
+            </div>
+            
+            <div class="benefit-card">
+                <div class="benefit-icon">🤝</div>
+                <h3>Transferencia de Conocimiento</h3>
+                <p>No creamos dependencia. Te enseñamos a operar y evolucionar tu solución. Tu equipo crece con nosotros.</p>
+            </div>
+            
+            <div class="benefit-card">
+                <div class="benefit-icon">📊</div>
+                <h3>Métricas desde el Día 1</h3>
+                <p>Definimos KPIs antes de empezar y los medimos constantemente. Sabrás exactamente qué ROI estás obteniendo.</p>
+            </div>
+            
+            <div class="benefit-card">
+                <div class="benefit-icon">🛡️</div>
+                <h3>Riesgo Minimizado</h3>
+                <p>Empezamos pequeño, validamos, y escalamos lo que funciona. No apuestas todo a una carta.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-box">
+            <h2>¿Cuánto Estás Perdiendo Cada Día Sin IA?</h2>
+            <p>Cada semana que esperas, tu competencia avanza. Agenda una llamada de 30 minutos y te mostramos exactamente qué oportunidades tienes.</p>
+            <a href="mailto:hola@appgile.com" class="btn">Descubrir mi Oportunidad →</a>
+            <p style="margin-top: 24px; font-size: 14px; color: var(--text-muted);">
+                📧 hola@appgile.com · 📱 Telegram @Tomixter<br>
+                <span style="opacity: 0.7;">Sin compromiso. Sin pitch agresivo. Solo conversación honesta.</span>
+            </p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>© 2025 Appgile — Donde las ideas se convierten en productos</p>
+</footer>
+
+</body>
+</html>

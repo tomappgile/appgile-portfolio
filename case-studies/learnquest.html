@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caso de Estudio: LearnQuest — LMS Gamificado con +85% Engagement | Appgile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary: #6366f1; --accent: #22d3ee; --success: #10b981; --bg: #0a0a0f; --bg-card: #111118; --border: rgba(255,255,255,0.06); --text: #f8fafc; --text-muted: #71717a; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+        .container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+        .case-header { padding: 80px 0 60px; text-align: center; }
+        .case-category { display: inline-block; background: rgba(99,102,241,0.1); color: var(--primary); padding: 6px 16px; border-radius: 100px; font-size: 14px; font-weight: 600; margin-bottom: 24px; }
+        .case-header h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 16px; line-height: 1.2; }
+        .case-header p { font-size: 1.25rem; color: var(--text-muted); max-width: 600px; margin: 0 auto; }
+        .hero-image { width: 100%; border-radius: 16px; margin: 40px 0; border: 1px solid var(--border); }
+        .metrics-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin: 48px 0; }
+        .metric-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; text-align: center; }
+        .metric-value { font-size: 2rem; font-weight: 800; color: var(--accent); }
+        .metric-label { font-size: 14px; color: var(--text-muted); margin-top: 4px; }
+        .case-content { padding-bottom: 80px; }
+        .case-content h2 { font-size: 1.5rem; font-weight: 700; margin: 48px 0 16px; color: var(--accent); }
+        .case-content p { margin-bottom: 16px; color: var(--text-muted); }
+        .case-content ul { margin: 16px 0; padding-left: 24px; color: var(--text-muted); }
+        .case-content li { margin-bottom: 8px; }
+        .case-content strong { color: var(--text); }
+        .quote { background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(34,211,238,0.05)); border-left: 4px solid var(--primary); padding: 24px 32px; margin: 32px 0; border-radius: 0 12px 12px 0; font-style: italic; font-size: 1.1rem; }
+        .tech-stack { display: flex; flex-wrap: wrap; gap: 12px; margin: 24px 0; }
+        .tech-tag { background: var(--bg-card); border: 1px solid var(--border); padding: 8px 16px; border-radius: 8px; font-size: 14px; }
+        .badge-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 24px 0; }
+        .badge-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 12px; text-align: center; font-size: 13px; }
+        .badge-card.common { border-color: #71717a; }
+        .badge-card.rare { border-color: #3b82f6; }
+        .badge-card.epic { border-color: #a855f7; }
+        .badge-card.legendary { border-color: #f59e0b; }
+        .case-cta { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 48px; text-align: center; margin-top: 60px; }
+        .case-cta h3 { font-size: 1.5rem; margin-bottom: 12px; }
+        .case-cta p { color: var(--text-muted); margin-bottom: 24px; }
+        .btn { display: inline-block; background: linear-gradient(135deg, var(--primary), #4f46e5); color: white; padding: 14px 32px; border-radius: 10px; text-decoration: none; font-weight: 600; }
+        .back-link { display: inline-flex; align-items: center; gap: 8px; color: var(--text-muted); text-decoration: none; font-size: 14px; margin-bottom: 40px; }
+        @media (max-width: 600px) { .metrics-grid, .badge-grid { grid-template-columns: repeat(2, 1fr); } }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="case-header">
+        <a href="../" class="back-link">← Volver al portfolio</a>
+        <span class="case-category">EdTech / Gamificación</span>
+        <h1>El LMS que Engancha Como un Videojuego</h1>
+        <p>Cómo convertimos formación corporativa aburrida en una experiencia que los empleados QUIEREN completar</p>
+    </div>
+    
+    <img src="../images/11-learnquest-lms.png" alt="LearnQuest LMS" class="hero-image">
+    
+    <div class="metrics-grid">
+        <div class="metric-card">
+            <div class="metric-value">+85%</div>
+            <div class="metric-label">Engagement</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-value">92%</div>
+            <div class="metric-label">Tasa completado</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-value">4.8/5</div>
+            <div class="metric-label">Satisfacción</div>
+        </div>
+    </div>
+    
+    <div class="case-content">
+        <h2>El Problema Universal</h2>
+        <p>La formación corporativa tiene un problema de abandono masivo. Las estadísticas son brutales:</p>
+        
+        <ul>
+            <li><strong>80% abandono</strong> en cursos online tradicionales</li>
+            <li><strong>"Hacer el curso"</strong> = saltarse videos a 2x y hacer tests al azar</li>
+            <li><strong>ROI inexistente</strong> — Se invierte en formación que nadie completa</li>
+            <li><strong>Empleados desmotivados</strong> — Ven la formación como un castigo</li>
+        </ul>
+        
+        <p>El problema no es el contenido. Es la <strong>experiencia</strong>.</p>
+        
+        <h2>La Solución: Gamificación Real</h2>
+        <p>LearnQuest aplica las mismas mecánicas que hacen adictivos a los videojuegos:</p>
+        
+        <p><strong>🎮 Sistema de Progresión</strong></p>
+        <ul>
+            <li><strong>XP (Experience Points)</strong> — Cada lección completada suma puntos</li>
+            <li><strong>Niveles</strong> — Desbloqueas contenido avanzado al subir de nivel</li>
+            <li><strong>Rachas</strong> — Bonus por días consecutivos de aprendizaje</li>
+        </ul>
+        
+        <p><strong>🏆 Sistema de Insignias</strong></p>
+        <div class="badge-grid">
+            <div class="badge-card common">⚪ Common<br><small>Fáciles de conseguir</small></div>
+            <div class="badge-card rare">🔵 Rare<br><small>Requiere esfuerzo</small></div>
+            <div class="badge-card epic">🟣 Epic<br><small>Logros especiales</small></div>
+            <div class="badge-card legendary">🟡 Legendary<br><small>Solo los mejores</small></div>
+        </div>
+        
+        <p><strong>📊 Clasificación y Social</strong></p>
+        <ul>
+            <li><strong>Leaderboard global</strong> — Competición sana entre empleados</li>
+            <li><strong>Leaderboard por equipo</strong> — Fomenta colaboración departamental</li>
+            <li><strong>Perfil público</strong> — Muestra tus logros y especialidades</li>
+        </ul>
+        
+        <div class="quote">
+            "Nunca pensé que vería a comerciales compitiendo por quién hace más cursos. Ahora me piden que suba contenido nuevo."
+        </div>
+        
+        <h2>Panel de Administración</h2>
+        <p>El equipo de formación tiene control total:</p>
+        <ul>
+            <li><strong>Creador de cursos</strong> — Arrastra y suelta para crear contenido</li>
+            <li><strong>Asignación por equipos</strong> — Cursos obligatorios vs opcionales</li>
+            <li><strong>Analytics avanzados</strong> — Quién aprende qué y cuándo</li>
+            <li><strong>Certificaciones automáticas</strong> — PDF generados al completar</li>
+        </ul>
+        
+        <h2>Stack Técnico</h2>
+        <div class="tech-stack">
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">Node.js</span>
+            <span class="tech-tag">PostgreSQL</span>
+            <span class="tech-tag">Redis</span>
+            <span class="tech-tag">WebSockets</span>
+            <span class="tech-tag">AWS S3</span>
+        </div>
+        
+        <h2>Resultados Medibles</h2>
+        <ul>
+            <li><strong>+85% engagement</strong> vs LMS tradicional anterior</li>
+            <li><strong>92% tasa de completado</strong> (vs 20% industria)</li>
+            <li><strong>4.8/5 satisfacción</strong> en encuestas de empleados</li>
+            <li><strong>-40% tiempo</strong> de onboarding nuevos empleados</li>
+            <li><strong>+25% retención</strong> de conocimiento a 30 días</li>
+        </ul>
+        
+        <h2>Ideal Para</h2>
+        <ul>
+            <li>Empresas con formación obligatoria (compliance, seguridad...)</li>
+            <li>Onboarding de nuevos empleados</li>
+            <li>Academias y centros de formación</li>
+            <li>Programas de certificación interna</li>
+        </ul>
+        
+        <div class="case-cta">
+            <h3>¿Tu formación tiene problema de abandono?</h3>
+            <p>La gamificación puede transformar cursos que nadie termina en experiencias que todos quieren completar.</p>
+            <a href="mailto:hola@appgile.com" class="btn">Diseñar mi LMS →</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

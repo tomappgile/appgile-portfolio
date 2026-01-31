@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caso de Estudio: MudiIA — De Fotos a Presupuesto en 30 Segundos | Appgile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --accent: #22d3ee;
+            --success: #10b981;
+            --bg: #0a0a0f;
+            --bg-card: #111118;
+            --border: rgba(255,255,255,0.06);
+            --text: #f8fafc;
+            --text-muted: #71717a;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+        .container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+        
+        /* Header */
+        .case-header { padding: 80px 0 60px; text-align: center; }
+        .case-category { 
+            display: inline-block; 
+            background: rgba(99,102,241,0.1); 
+            color: var(--primary); 
+            padding: 6px 16px; 
+            border-radius: 100px; 
+            font-size: 14px; 
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+        .case-header h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 16px; line-height: 1.2; }
+        .case-header p { font-size: 1.25rem; color: var(--text-muted); max-width: 600px; margin: 0 auto; }
+        
+        /* Hero Image */
+        .hero-image { 
+            width: 100%; 
+            border-radius: 16px; 
+            margin: 40px 0;
+            border: 1px solid var(--border);
+        }
+        
+        /* Metrics */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin: 48px 0;
+        }
+        .metric-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+        }
+        .metric-value { font-size: 2rem; font-weight: 800; color: var(--accent); }
+        .metric-label { font-size: 14px; color: var(--text-muted); margin-top: 4px; }
+        
+        /* Content */
+        .case-content { padding-bottom: 80px; }
+        .case-content h2 { font-size: 1.5rem; font-weight: 700; margin: 48px 0 16px; color: var(--accent); }
+        .case-content p { margin-bottom: 16px; color: var(--text-muted); }
+        .case-content ul { margin: 16px 0; padding-left: 24px; color: var(--text-muted); }
+        .case-content li { margin-bottom: 8px; }
+        .case-content strong { color: var(--text); }
+        
+        /* Quote */
+        .quote {
+            background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(34,211,238,0.05));
+            border-left: 4px solid var(--primary);
+            padding: 24px 32px;
+            margin: 32px 0;
+            border-radius: 0 12px 12px 0;
+            font-style: italic;
+            font-size: 1.1rem;
+        }
+        
+        /* Tech Stack */
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 24px 0;
+        }
+        .tech-tag {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+        
+        /* CTA */
+        .case-cta {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 48px;
+            text-align: center;
+            margin-top: 60px;
+        }
+        .case-cta h3 { font-size: 1.5rem; margin-bottom: 12px; }
+        .case-cta p { color: var(--text-muted); margin-bottom: 24px; }
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), #4f46e5);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .btn:hover { transform: translateY(-2px); }
+        
+        /* Back link */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 40px;
+        }
+        .back-link:hover { color: var(--primary); }
+        
+        @media (max-width: 600px) {
+            .metrics-grid { grid-template-columns: 1fr; }
+            .case-header h1 { font-size: 1.75rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="case-header">
+        <a href="../" class="back-link">← Volver al portfolio</a>
+        <span class="case-category">Computer Vision + Voice AI</span>
+        <h1>De Fotos a Presupuesto de Mudanza en 30 Segundos</h1>
+        <p>Cómo la IA transformó el proceso de presupuestar mudanzas de 2 horas a medio minuto</p>
+    </div>
+    
+    <img src="../images/02-amygo-mudiia.jpg" alt="MudiIA Interface" class="hero-image">
+    
+    <div class="metrics-grid">
+        <div class="metric-card">
+            <div class="metric-value">30s</div>
+            <div class="metric-label">Tiempo de presupuesto</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-value">95%</div>
+            <div class="metric-label">Precisión detección</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-value">13+</div>
+            <div class="metric-label">Objetos por foto</div>
+        </div>
+    </div>
+    
+    <div class="case-content">
+        <h2>El Problema</h2>
+        <p>Las empresas de mudanzas enfrentan un problema común: presupuestar es lento, inexacto y costoso.</p>
+        <ul>
+            <li><strong>2+ horas</strong> por presupuesto (visita física o llamada detallada)</li>
+            <li><strong>30% de variación</strong> entre presupuesto y coste real</li>
+            <li><strong>Clientes frustrados</strong> por procesos lentos</li>
+            <li><strong>Operaciones saturadas</strong> respondiendo solicitudes</li>
+        </ul>
+        
+        <h2>La Solución</h2>
+        <p>MudiIA usa <strong>Computer Vision</strong> y <strong>Voice AI</strong> para automatizar completamente el proceso:</p>
+        
+        <p><strong>1. Captura por foto</strong> — El cliente sube fotos de cada habitación desde su móvil</p>
+        <p><strong>2. Detección automática</strong> — OpenAI Vision identifica cada objeto: sofás, mesas, electrodomésticos, cajas...</p>
+        <p><strong>3. Captura por voz</strong> — Alternativamente, el cliente enumera objetos hablando y la IA los procesa</p>
+        <p><strong>4. Cálculo inteligente</strong> — El sistema calcula volumen en m³ basándose en dimensiones estándar</p>
+        <p><strong>5. Presupuesto completo</strong> — Genera precio con desglose: base, km, manipulación, extras...</p>
+        
+        <div class="quote">
+            "Antes tardábamos 2 horas en dar un presupuesto. Ahora el cliente tiene el precio en su móvil antes de colgar el teléfono."
+        </div>
+        
+        <h2>Funcionalidades Clave</h2>
+        <ul>
+            <li><strong>Detección multi-objeto</strong> — Identifica 13+ objetos por foto con alta precisión</li>
+            <li><strong>Input dual</strong> — Fotos O voz, el cliente elige</li>
+            <li><strong>Google Maps integrado</strong> — Cálculo automático de kilómetros y rutas</li>
+            <li><strong>Panel de administración</strong> — Configuración de tarifas, zonas, temporadas</li>
+            <li><strong>Progreso visual</strong> — El cliente ve cómo se analizan sus fotos en tiempo real</li>
+            <li><strong>Tips contextuales</strong> — Sugerencias útiles durante el proceso</li>
+        </ul>
+        
+        <h2>Stack Técnico</h2>
+        <div class="tech-stack">
+            <span class="tech-tag">OpenAI Vision API</span>
+            <span class="tech-tag">OpenAI Whisper</span>
+            <span class="tech-tag">Google Maps API</span>
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">Node.js</span>
+            <span class="tech-tag">PostgreSQL</span>
+            <span class="tech-tag">ElevenLabs TTS</span>
+        </div>
+        
+        <h2>Resultados</h2>
+        <ul>
+            <li><strong>97% reducción</strong> en tiempo de presupuesto (2h → 30s)</li>
+            <li><strong>+40% conversión</strong> — Respuesta inmediata = más clientes</li>
+            <li><strong>-60% llamadas</strong> al call center</li>
+            <li><strong>95% satisfacción</strong> de usuarios con el proceso</li>
+        </ul>
+        
+        <div class="case-cta">
+            <h3>¿Tienes un proceso manual que podría ser automático?</h3>
+            <p>La IA puede transformar operaciones de horas en segundos. Hablemos de tu caso.</p>
+            <a href="mailto:hola@appgile.com" class="btn">Contactar →</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

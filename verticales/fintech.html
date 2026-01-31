@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IA para Fintech — Soluciones Probadas en Producción | Appgile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary: #6366f1; --accent: #22d3ee; --success: #10b981; --bg: #0a0a0f; --bg-card: #111118; --border: rgba(255,255,255,0.06); --text: #f8fafc; --text-muted: #71717a; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+        
+        .hero { padding: 80px 0 60px; text-align: center; background: radial-gradient(ellipse at 50% 0%, rgba(99,102,241,0.1) 0%, transparent 60%); }
+        .hero-badge { display: inline-block; background: rgba(99,102,241,0.1); color: var(--primary); padding: 6px 16px; border-radius: 100px; font-size: 14px; font-weight: 600; margin-bottom: 20px; }
+        .hero h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 16px; }
+        .hero p { color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto 32px; }
+        
+        .metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin: 48px 0; }
+        .metric { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; text-align: center; }
+        .metric-value { font-size: 2rem; font-weight: 800; color: var(--accent); }
+        .metric-label { font-size: 13px; color: var(--text-muted); }
+        
+        section { padding: 60px 0; }
+        h2 { font-size: 1.75rem; margin-bottom: 32px; text-align: center; }
+        
+        .solutions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+        .solution-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 28px; }
+        .solution-icon { font-size: 2rem; margin-bottom: 12px; }
+        .solution-card h3 { font-size: 1.1rem; margin-bottom: 8px; }
+        .solution-card p { color: var(--text-muted); font-size: 14px; margin-bottom: 16px; }
+        .solution-card ul { list-style: none; padding: 0; }
+        .solution-card li { font-size: 13px; color: var(--text-muted); padding: 4px 0; display: flex; align-items: center; gap: 8px; }
+        .solution-card li::before { content: '✓'; color: var(--success); font-weight: 700; }
+        
+        .case-preview { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+        .case-preview img { width: 100%; height: 100%; object-fit: cover; }
+        .case-content { padding: 32px; display: flex; flex-direction: column; justify-content: center; }
+        .case-content h3 { font-size: 1.25rem; margin-bottom: 12px; }
+        .case-content p { color: var(--text-muted); font-size: 14px; margin-bottom: 16px; }
+        .case-metrics { display: flex; gap: 24px; }
+        .case-metric { text-align: center; }
+        .case-metric-value { font-size: 1.5rem; font-weight: 700; color: var(--accent); }
+        .case-metric-label { font-size: 12px; color: var(--text-muted); }
+        
+        .cta { text-align: center; padding: 80px 0; }
+        .cta h2 { margin-bottom: 16px; }
+        .cta p { color: var(--text-muted); margin-bottom: 24px; }
+        .btn { display: inline-block; background: linear-gradient(135deg, var(--primary), #4f46e5); color: white; padding: 14px 32px; border-radius: 10px; text-decoration: none; font-weight: 600; }
+        
+        @media (max-width: 768px) { .metrics { grid-template-columns: repeat(2, 1fr); } .case-preview { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+<section class="hero">
+    <div class="container">
+        <span class="hero-badge">💰 Fintech & InsurTech</span>
+        <h1>IA que Entiende el Dinero</h1>
+        <p>Soluciones de inteligencia artificial probadas en producción para servicios financieros, seguros y pagos.</p>
+    </div>
+</section>
+
+<div class="container">
+    <div class="metrics">
+        <div class="metric">
+            <div class="metric-value">1,250</div>
+            <div class="metric-label">req/s en producción</div>
+        </div>
+        <div class="metric">
+            <div class="metric-value">99.97%</div>
+            <div class="metric-label">Uptime garantizado</div>
+        </div>
+        <div class="metric">
+            <div class="metric-value">6</div>
+            <div class="metric-label">Países LATAM</div>
+        </div>
+        <div class="metric">
+            <div class="metric-value">24</div>
+            <div class="metric-label">Partners fintech</div>
+        </div>
+    </div>
+</div>
+
+<section>
+    <div class="container">
+        <h2>Soluciones para Fintech</h2>
+        <div class="solutions-grid">
+            <div class="solution-card">
+                <div class="solution-icon">🔌</div>
+                <h3>Plugins Financieros Embebidos</h3>
+                <p>Widgets de crédito, seguros y pagos que se integran en cualquier web en minutos.</p>
+                <ul>
+                    <li>Calculadoras de financiación</li>
+                    <li>Cotizadores de seguros</li>
+                    <li>Comparadores de productos</li>
+                    <li>Integración en 15 min</li>
+                </ul>
+            </div>
+            
+            <div class="solution-card">
+                <div class="solution-icon">📊</div>
+                <h3>Analytics con IA</h3>
+                <p>Dashboards que predicen, detectan anomalías y recomiendan acciones.</p>
+                <ul>
+                    <li>Sentiment analysis de mercado</li>
+                    <li>Predicción de morosidad</li>
+                    <li>Scoring de riesgo</li>
+                    <li>Detección de fraude</li>
+                </ul>
+            </div>
+            
+            <div class="solution-card">
+                <div class="solution-icon">🤖</div>
+                <h3>Automatización de Procesos</h3>
+                <p>IA que procesa documentos, verifica identidades y aprueba operaciones.</p>
+                <ul>
+                    <li>KYC automatizado</li>
+                    <li>Verificación de documentos</li>
+                    <li>Extracción de datos</li>
+                    <li>Aprobación de créditos</li>
+                </ul>
+            </div>
+            
+            <div class="solution-card">
+                <div class="solution-icon">💬</div>
+                <h3>Asistentes Financieros</h3>
+                <p>Chatbots especializados en productos financieros y compliance.</p>
+                <ul>
+                    <li>Asesoramiento 24/7</li>
+                    <li>Onboarding guiado</li>
+                    <li>Soporte de productos</li>
+                    <li>Compliance integrado</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>Caso de Éxito: Cardif (BNP Paribas)</h2>
+        <div class="case-preview">
+            <img src="../images/27-cardif-insurance-plugins.jpg" alt="Cardif Insurance Plugins">
+            <div class="case-content">
+                <h3>Ecosistema de Seguros Embebidos para LATAM</h3>
+                <p>Desarrollamos un sistema completo de plugins de seguros que permite a e-commerce y fintechs ofrecer 4 productos de seguros con integración en 15 minutos.</p>
+                <div class="case-metrics">
+                    <div class="case-metric">
+                        <div class="case-metric-value">6</div>
+                        <div class="case-metric-label">Países</div>
+                    </div>
+                    <div class="case-metric">
+                        <div class="case-metric-value">24</div>
+                        <div class="case-metric-label">Partners</div>
+                    </div>
+                    <div class="case-metric">
+                        <div class="case-metric-value">156</div>
+                        <div class="case-metric-label">Plugins</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta">
+    <div class="container">
+        <h2>¿Listo para modernizar tu fintech con IA?</h2>
+        <p>Hablemos de cómo podemos acelerar tus procesos y crear nuevos productos.</p>
+        <a href="mailto:hola@appgile.com" class="btn">Agendar llamada →</a>
+    </div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IA para HealthTech — Soluciones Médicas Inteligentes | Appgile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary: #6366f1; --accent: #22d3ee; --success: #10b981; --bg: #0a0a0f; --bg-card: #111118; --border: rgba(255,255,255,0.06); --text: #f8fafc; --text-muted: #71717a; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+        
+        .hero { padding: 80px 0 60px; text-align: center; background: radial-gradient(ellipse at 50% 0%, rgba(16, 185, 129, 0.1) 0%, transparent 60%); }
+        .hero-badge { display: inline-block; background: rgba(16, 185, 129, 0.1); color: var(--success); padding: 6px 16px; border-radius: 100px; font-size: 14px; font-weight: 600; margin-bottom: 20px; }
+        .hero h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 16px; }
+        .hero p { color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto 32px; }
+        
+        section { padding: 60px 0; }
+        h2 { font-size: 1.75rem; margin-bottom: 32px; text-align: center; }
+        
+        .solutions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+        .solution-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 28px; }
+        .solution-icon { font-size: 2rem; margin-bottom: 12px; }
+        .solution-card h3 { font-size: 1.1rem; margin-bottom: 8px; }
+        .solution-card p { color: var(--text-muted); font-size: 14px; margin-bottom: 16px; }
+        .solution-card ul { list-style: none; padding: 0; }
+        .solution-card li { font-size: 13px; color: var(--text-muted); padding: 4px 0; display: flex; align-items: center; gap: 8px; }
+        .solution-card li::before { content: '✓'; color: var(--success); font-weight: 700; }
+        
+        .disclaimer { background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); border-radius: 12px; padding: 20px; margin: 32px 0; text-align: center; font-size: 14px; color: #fbbf24; }
+        
+        .cta { text-align: center; padding: 80px 0; }
+        .cta h2 { margin-bottom: 16px; }
+        .cta p { color: var(--text-muted); margin-bottom: 24px; }
+        .btn { display: inline-block; background: linear-gradient(135deg, var(--primary), #4f46e5); color: white; padding: 14px 32px; border-radius: 10px; text-decoration: none; font-weight: 600; }
+    </style>
+</head>
+<body>
+
+<section class="hero">
+    <div class="container">
+        <span class="hero-badge">🏥 HealthTech</span>
+        <h1>IA al Servicio de la Salud</h1>
+        <p>Herramientas inteligentes para profesionales médicos, clínicas y empresas de salud. IA que apoya, no reemplaza.</p>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>Soluciones para Salud</h2>
+        
+        <div class="disclaimer">
+            ⚠️ Nuestras soluciones son herramientas de <strong>apoyo profesional</strong>. No sustituyen el criterio médico ni están destinadas a diagnóstico autónomo.
+        </div>
+        
+        <div class="solutions-grid">
+            <div class="solution-card">
+                <div class="solution-icon">🧠</div>
+                <h3>Asistentes Clínicos IA</h3>
+                <p>Herramientas de apoyo para profesionales: diagnóstico diferencial, estrategias terapéuticas, evaluaciones.</p>
+                <ul>
+                    <li>Consulta de síntomas y correlaciones</li>
+                    <li>Sugerencias de diagnóstico diferencial</li>
+                    <li>Protocolos de tratamiento</li>
+                    <li>Referencias bibliográficas</li>
+                </ul>
+            </div>
+            
+            <div class="solution-card">
+                <div class="solution-icon">📞</div>
+                <h3>Automatización de Citas</h3>
+                <p>Sistema de llamadas automáticas para reducir no-shows y optimizar agenda.</p>
+                <ul>
+                    <li>Recordatorios de citas por voz IA</li>
+                    <li>Confirmación automática</li>
+                    <li>Reprogramación inteligente</li>
+                    <li>-70% no-shows típico</li>
+                </ul>
+            </div>
+            
+            <div class="solution-card">
+                <div class="solution-icon">📄</div>
+                <h3>Procesamiento de Documentos</h3>
+                <p>IA que lee historiales, informes y documentación médica.</p>
+                <ul>
+                    <li>Extracción de datos de informes</li>
+                    <li>Resumen de historiales</li>
+                    <li>Búsqueda semántica en documentos</li>
+                    <li>Integración con HIS/EHR</li>
+                </ul>
+            </div>
+            
+            <div class="solution-card">
+                <div class="solution-icon">💬</div>
+                <h3>Chatbots de Triaje</h3>
+                <p>Primera línea de atención para filtrar urgencias y orientar pacientes.</p>
+                <ul>
+                    <li>Triaje inicial por chat</li>
+                    <li>Derivación a especialista</li>
+                    <li>FAQ de salud automatizadas</li>
+                    <li>Integración con citas</li>
+                </ul>
+            </div>
+            
+            <div class="solution-card">
+                <div class="solution-icon">📊</div>
+                <h3>Analytics de Pacientes</h3>
+                <p>Dashboards para gestión de clínicas y seguimiento poblacional.</p>
+                <ul>
+                    <li>KPIs de clínica en tiempo real</li>
+                    <li>Predicción de demanda</li>
+                    <li>Seguimiento de tratamientos</li>
+                    <li>Alertas de pacientes en riesgo</li>
+                </ul>
+            </div>
+            
+            <div class="solution-card">
+                <div class="solution-icon">🎓</div>
+                <h3>Formación Médica</h3>
+                <p>LMS gamificado para formación continuada de profesionales sanitarios.</p>
+                <ul>
+                    <li>Cursos con casos clínicos</li>
+                    <li>Simulaciones interactivas</li>
+                    <li>Certificaciones automáticas</li>
+                    <li>Tracking de formación obligatoria</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta">
+    <div class="container">
+        <h2>¿Quieres mejorar tu clínica con IA?</h2>
+        <p>Diseñamos soluciones a medida cumpliendo con normativa sanitaria y RGPD.</p>
+        <a href="mailto:hola@appgile.com" class="btn">Hablemos de tu caso →</a>
+    </div>
+</section>
+
+</body>
+</html>

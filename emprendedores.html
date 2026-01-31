@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IA para Emprendedores — MVP en Semanas, No Meses | Appgile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --accent: #22d3ee;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --bg: #0a0a0f;
+            --bg-card: #111118;
+            --border: rgba(255,255,255,0.06);
+            --text: #f8fafc;
+            --text-muted: #71717a;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+        
+        /* Hero */
+        .hero {
+            padding: 100px 0 80px;
+            text-align: center;
+            background: radial-gradient(ellipse at 50% 0%, rgba(99,102,241,0.15) 0%, transparent 60%);
+        }
+        
+        .hero-eyebrow {
+            display: inline-block;
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+            padding: 8px 20px;
+            border-radius: 100px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+        
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+        
+        .hero h1 span { color: var(--accent); }
+        
+        .hero-sub {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 32px;
+        }
+        
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), #4f46e5);
+            color: white;
+            box-shadow: 0 4px 20px rgba(99,102,241,0.3);
+        }
+        
+        .btn-primary:hover { transform: translateY(-2px); }
+        
+        .btn-ghost {
+            border: 1px solid var(--border);
+            color: var(--text);
+        }
+        
+        .btn-ghost:hover { border-color: var(--primary); }
+        
+        /* Pain Points */
+        .pain-section { padding: 80px 0; }
+        
+        .pain-section h2 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        
+        .pain-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        
+        .pain-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px;
+        }
+        
+        .pain-card.problem { border-left: 4px solid #ef4444; }
+        .pain-card.solution { border-left: 4px solid var(--success); }
+        
+        .pain-icon { font-size: 2rem; margin-bottom: 12px; }
+        .pain-card h3 { font-size: 1.1rem; margin-bottom: 8px; }
+        .pain-card p { color: var(--text-muted); font-size: 15px; }
+        
+        /* Services */
+        .services-section {
+            padding: 80px 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(99,102,241,0.03) 100%);
+        }
+        
+        .services-section h2 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+        
+        .services-section > .container > p {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 48px;
+        }
+        
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+        
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            transition: all 0.3s;
+        }
+        
+        .service-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-4px);
+        }
+        
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(99,102,241,0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+        }
+        
+        .service-card h3 { font-size: 1.1rem; margin-bottom: 8px; }
+        .service-card p { color: var(--text-muted); font-size: 14px; margin-bottom: 16px; }
+        
+        .service-examples {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .example-tag {
+            font-size: 12px;
+            padding: 4px 10px;
+            background: rgba(34, 211, 238, 0.1);
+            color: var(--accent);
+            border-radius: 100px;
+        }
+        
+        /* Timeline */
+        .timeline-section { padding: 80px 0; }
+        
+        .timeline-section h2 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 24px;
+            position: relative;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 32px;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background: var(--border);
+            z-index: 0;
+        }
+        
+        .timeline-step {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .step-number {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin: 0 auto 16px;
+        }
+        
+        .timeline-step h4 { margin-bottom: 8px; }
+        .timeline-step p { color: var(--text-muted); font-size: 14px; }
+        
+        .step-duration {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 4px 12px;
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+        
+        /* Pricing */
+        .pricing-section { padding: 80px 0; }
+        
+        .pricing-section h2 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+        
+        .pricing-section > .container > p {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 48px;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+        
+        .pricing-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+        }
+        
+        .pricing-card.featured {
+            border-color: var(--primary);
+            position: relative;
+        }
+        
+        .pricing-card.featured::before {
+            content: 'Más popular';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: white;
+            padding: 4px 16px;
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .pricing-name { font-size: 1.25rem; font-weight: 700; margin-bottom: 8px; }
+        .pricing-desc { color: var(--text-muted); font-size: 14px; margin-bottom: 16px; }
+        .pricing-price { font-size: 2rem; font-weight: 800; margin-bottom: 8px; }
+        .pricing-price span { font-size: 1rem; color: var(--text-muted); font-weight: 400; }
+        
+        .pricing-features {
+            list-style: none;
+            padding: 0;
+            margin: 24px 0;
+        }
+        
+        .pricing-features li {
+            padding: 8px 0;
+            color: var(--text-muted);
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .pricing-features li::before {
+            content: '✓';
+            color: var(--success);
+            font-weight: 700;
+        }
+        
+        /* FAQ */
+        .faq-section { padding: 80px 0; }
+        
+        .faq-section h2 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 24px;
+        }
+        
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+        }
+        
+        .faq-item h4 { font-size: 1rem; margin-bottom: 8px; }
+        .faq-item p { color: var(--text-muted); font-size: 14px; }
+        
+        /* CTA */
+        .cta-section {
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .cta-box {
+            background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(34,211,238,0.05));
+            border: 1px solid rgba(99,102,241,0.2);
+            border-radius: 24px;
+            padding: 60px 40px;
+        }
+        
+        .cta-box h2 { font-size: 2rem; margin-bottom: 16px; }
+        .cta-box p { color: var(--text-muted); margin-bottom: 32px; font-size: 1.1rem; }
+        
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .timeline::before { display: none; }
+            .faq-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="container">
+        <span class="hero-eyebrow">🚀 Para Emprendedores y Startups</span>
+        <h1>Tu Idea + Nuestra IA = <span>Producto en Semanas</span></h1>
+        <p class="hero-sub">
+            No necesitas equipo técnico ni meses de desarrollo. 
+            Validamos tu idea con un MVP funcional más rápido de lo que tardarías en contratar un developer.
+        </p>
+        <div class="hero-cta">
+            <a href="#contacto" class="btn btn-primary">Agenda una llamada gratis →</a>
+            <a href="index.html" class="btn btn-ghost">Ver proyectos</a>
+        </div>
+    </div>
+</section>
+
+<!-- Pain Points -->
+<section class="pain-section">
+    <div class="container">
+        <h2>😤 Lo que te está frenando vs. 💡 Cómo lo resolvemos</h2>
+        
+        <div class="pain-grid">
+            <div class="pain-card problem">
+                <div class="pain-icon">❌</div>
+                <h3>"No tengo equipo técnico"</h3>
+                <p>Contratar developers es caro, lento y no sabes si elegirás bien.</p>
+            </div>
+            <div class="pain-card solution">
+                <div class="pain-icon">✅</div>
+                <h3>Nosotros somos tu equipo</h3>
+                <p>Full-stack + IA desde el día 1. Sin proceso de hiring, sin ramp-up.</p>
+            </div>
+            
+            <div class="pain-card problem">
+                <div class="pain-icon">❌</div>
+                <h3>"Tarda demasiado en salir"</h3>
+                <p>6 meses para un MVP significa perder la ventana de oportunidad.</p>
+            </div>
+            <div class="pain-card solution">
+                <div class="pain-icon">✅</div>
+                <h3>MVP en 2-4 semanas</h3>
+                <p>Prototipo funcional para probar con usuarios reales, no slides.</p>
+            </div>
+            
+            <div class="pain-card problem">
+                <div class="pain-icon">❌</div>
+                <h3>"No sé qué es posible con IA"</h3>
+                <p>Vision, voz, NLP, generación... es un campo abrumador.</p>
+            </div>
+            <div class="pain-card solution">
+                <div class="pain-icon">✅</div>
+                <h3>180+ proyectos de experiencia</h3>
+                <p>Te decimos qué funciona para tu caso específico.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services -->
+<section class="services-section">
+    <div class="container">
+        <h2>Capacidades de IA para tu Startup</h2>
+        <p>Todo lo que necesitas para crear productos inteligentes</p>
+        
+        <div class="service-grid">
+            <div class="service-card">
+                <div class="service-icon">👁️</div>
+                <h3>Computer Vision</h3>
+                <p>Tu app puede "ver" y entender imágenes, documentos, productos...</p>
+                <div class="service-examples">
+                    <span class="example-tag">Análisis de fotos</span>
+                    <span class="example-tag">OCR inteligente</span>
+                    <span class="example-tag">Detección objetos</span>
+                </div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">🎤</div>
+                <h3>Voice AI</h3>
+                <p>Voz a texto, texto a voz, llamadas automáticas, asistentes...</p>
+                <div class="service-examples">
+                    <span class="example-tag">Transcripción</span>
+                    <span class="example-tag">Llamadas auto</span>
+                    <span class="example-tag">Voice bots</span>
+                </div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">💬</div>
+                <h3>Chatbots & NLP</h3>
+                <p>Asistentes que entienden contexto, no solo keywords.</p>
+                <div class="service-examples">
+                    <span class="example-tag">Soporte 24/7</span>
+                    <span class="example-tag">Lead gen</span>
+                    <span class="example-tag">Onboarding</span>
+                </div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">📄</div>
+                <h3>Document AI</h3>
+                <p>Extrae datos de PDFs, facturas, contratos automáticamente.</p>
+                <div class="service-examples">
+                    <span class="example-tag">Parsing docs</span>
+                    <span class="example-tag">Resúmenes</span>
+                    <span class="example-tag">Clasificación</span>
+                </div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">🎨</div>
+                <h3>Generación Contenido</h3>
+                <p>Textos, imágenes, código generados por IA para tu producto.</p>
+                <div class="service-examples">
+                    <span class="example-tag">Copywriting</span>
+                    <span class="example-tag">Imágenes</span>
+                    <span class="example-tag">Personalización</span>
+                </div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">📊</div>
+                <h3>Analytics & Predicción</h3>
+                <p>Dashboards inteligentes que predicen y recomiendan.</p>
+                <div class="service-examples">
+                    <span class="example-tag">Forecasting</span>
+                    <span class="example-tag">Anomalías</span>
+                    <span class="example-tag">Scoring</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Timeline -->
+<section class="timeline-section">
+    <div class="container">
+        <h2>De Idea a Producto en 4 Pasos</h2>
+        
+        <div class="timeline">
+            <div class="timeline-step">
+                <div class="step-number">1</div>
+                <h4>Discovery</h4>
+                <p>Entendemos tu negocio y definimos el MVP mínimo viable</p>
+                <span class="step-duration">1 semana</span>
+            </div>
+            <div class="timeline-step">
+                <div class="step-number">2</div>
+                <h4>Prototipo</h4>
+                <p>Demo funcional que puedes probar y enseñar a inversores</p>
+                <span class="step-duration">2 semanas</span>
+            </div>
+            <div class="timeline-step">
+                <div class="step-number">3</div>
+                <h4>MVP</h4>
+                <p>Versión 1.0 lista para usuarios reales en producción</p>
+                <span class="step-duration">2-4 semanas</span>
+            </div>
+            <div class="timeline-step">
+                <div class="step-number">4</div>
+                <h4>Escala</h4>
+                <p>Iteramos basándonos en feedback y métricas reales</p>
+                <span class="step-duration">Continuo</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pricing -->
+<section class="pricing-section">
+    <div class="container">
+        <h2>Invierte en Velocidad, No en Burocracia</h2>
+        <p>Paquetes claros para emprendedores. Sin sorpresas.</p>
+        
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <div class="pricing-name">Discovery Sprint</div>
+                <div class="pricing-desc">Validación rápida de tu idea</div>
+                <div class="pricing-price">2.500€ <span>/ proyecto</span></div>
+                <ul class="pricing-features">
+                    <li>1 semana de trabajo</li>
+                    <li>Análisis de viabilidad técnica</li>
+                    <li>Prototipo clickable (Figma)</li>
+                    <li>Roadmap técnico detallado</li>
+                    <li>Estimación de costes</li>
+                </ul>
+                <a href="#contacto" class="btn btn-ghost" style="width: 100%; justify-content: center;">Empezar →</a>
+            </div>
+            
+            <div class="pricing-card featured">
+                <div class="pricing-name">MVP Builder</div>
+                <div class="pricing-desc">Tu producto funcional en 1 mes</div>
+                <div class="pricing-price">8.000€ <span>/ proyecto</span></div>
+                <ul class="pricing-features">
+                    <li>4 semanas de desarrollo</li>
+                    <li>MVP funcional en producción</li>
+                    <li>Integración de IA (1-2 features)</li>
+                    <li>Panel de administración</li>
+                    <li>Documentación técnica</li>
+                    <li>1 mes de soporte incluido</li>
+                </ul>
+                <a href="#contacto" class="btn btn-primary" style="width: 100%; justify-content: center;">Empezar →</a>
+            </div>
+            
+            <div class="pricing-card">
+                <div class="pricing-name">Scale Partner</div>
+                <div class="pricing-desc">Tu equipo técnico externo</div>
+                <div class="pricing-price">4.000€ <span>/ mes</span></div>
+                <ul class="pricing-features">
+                    <li>Desarrollo continuo</li>
+                    <li>Nuevas features cada sprint</li>
+                    <li>Mantenimiento y soporte</li>
+                    <li>Reuniones semanales</li>
+                    <li>Escalable según necesidades</li>
+                    <li>Compromiso mínimo: 3 meses</li>
+                </ul>
+                <a href="#contacto" class="btn btn-ghost" style="width: 100%; justify-content: center;">Hablemos →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+    <div class="container">
+        <h2>Preguntas Frecuentes</h2>
+        
+        <div class="faq-grid">
+            <div class="faq-item">
+                <h4>¿Necesito saber programar?</h4>
+                <p>No. Nosotros nos encargamos de toda la parte técnica. Tú te enfocas en tu negocio y usuarios.</p>
+            </div>
+            <div class="faq-item">
+                <h4>¿Qué pasa si mi idea cambia durante el desarrollo?</h4>
+                <p>Es lo normal. Trabajamos en sprints cortos precisamente para poder pivotar rápido basándonos en lo que aprendemos.</p>
+            </div>
+            <div class="faq-item">
+                <h4>¿Me quedo con el código?</h4>
+                <p>Sí, 100%. Todo el código es tuyo. Trabajamos en tu repositorio desde el día 1.</p>
+            </div>
+            <div class="faq-item">
+                <h4>¿Puedo seguir trabajando con vosotros después del MVP?</h4>
+                <p>Claro. Muchos clientes empiezan con MVP Builder y luego pasan a Scale Partner para seguir evolucionando el producto.</p>
+            </div>
+            <div class="faq-item">
+                <h4>¿En qué tecnologías trabajáis?</h4>
+                <p>React, Node.js, Python, PostgreSQL, y todas las APIs de IA: OpenAI, Claude, Gemini, ElevenLabs, etc.</p>
+            </div>
+            <div class="faq-item">
+                <h4>¿Firmáis NDA?</h4>
+                <p>Sí, sin problema. Tu idea está segura con nosotros.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contacto">
+    <div class="container">
+        <div class="cta-box">
+            <h2>¿Listo para convertir tu idea en producto?</h2>
+            <p>Reserva una llamada de 30 minutos. Sin compromiso, sin venta agresiva. Solo exploramos si podemos ayudarte.</p>
+            <a href="mailto:hola@appgile.com" class="btn btn-primary">Reservar llamada gratuita →</a>
+            <p style="margin-top: 24px; font-size: 14px;">📧 hola@appgile.com · 📱 Telegram @Tomixter</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>© 2025 Appgile — Donde las ideas se convierten en productos</p>
+</footer>
+
+</body>
+</html>

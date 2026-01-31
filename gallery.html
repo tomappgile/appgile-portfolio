@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio IA - Tomás Corral</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        h1 {
+            font-size: 3rem;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            font-size: 1.3rem;
+            color: #a0a0a0;
+            margin-bottom: 30px;
+        }
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        .stat {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            min-width: 150px;
+        }
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+        .stat-label {
+            color: #888;
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+        .projects {
+            display: grid;
+            gap: 40px;
+        }
+        .project {
+            background: rgba(255,255,255,0.03);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .project:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
+        }
+        .project-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .project-info {
+            padding: 30px;
+        }
+        .project-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+        .project-description {
+            color: #a0a0a0;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .tag {
+            background: rgba(102, 126, 234, 0.2);
+            color: #667eea;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 40px;
+            color: #666;
+        }
+        .contact {
+            margin-top: 20px;
+        }
+        .contact a {
+            color: #667eea;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🤖 Portfolio IA</h1>
+            <p class="subtitle">Tomás Corral - Desarrollador IA & Software</p>
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">180+</div>
+                    <div class="stat-label">Proyectos IA</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">20+</div>
+                    <div class="stat-label">Apps Publicadas</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">8+</div>
+                    <div class="stat-label">Verticales</div>
+                </div>
+            </div>
+        </header>
+
+        <div class="projects">
+            <!-- Project 1 -->
+            <div class="project">
+                <img src="images/01-cuchis-festmanager.png" alt="Cuchis FestManager" class="project-image">
+                <div class="project-info">
+                    <h2 class="project-title">🎪 Los Cuchis - Festival Manager</h2>
+                    <p class="project-description">
+                        Sistema completo de gestión para el festival "Arroz Matanzas 2026". 
+                        Incluye gestión de cocina mágica, pociones, decoración, aquelarre de participantes, 
+                        y sistema de progreso gamificado con notificaciones en tiempo real.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">React</span>
+                        <span class="tag">TypeScript</span>
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">WebSockets</span>
+                        <span class="tag">Gamificación</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project">
+                <img src="images/02-amygo-mudiia.jpg" alt="AMYGO MudiIA" class="project-image">
+                <div class="project-info">
+                    <h2 class="project-title">🚚 MudiIA - Calculadora de Mudanzas con IA</h2>
+                    <p class="project-description">
+                        Aplicación revolucionaria para presupuestar mudanzas usando IA. 
+                        Sube fotos o usa voz para enumerar tus pertenencias - la IA detecta objetos 
+                        automáticamente, calcula volumen (123.90 m³) y genera presupuesto (€9,492.50).
+                        Integración con Google Maps para rutas.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">OpenAI Vision</span>
+                        <span class="tag">Voice Recognition</span>
+                        <span class="tag">Google Maps API</span>
+                        <span class="tag">React</span>
+                        <span class="tag">ElevenLabs TTS</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project">
+                <img src="images/03-innpak-ingredient-hub.png" alt="IngredientHub" class="project-image">
+                <div class="project-info">
+                    <h2 class="project-title">🧪 IngredientHub - Gestión de Ingredientes</h2>
+                    <p class="project-description">
+                        Dashboard profesional para gestión integral de ingredientes en polvo para bebidas 
+                        y productos liofilizados. 25 ingredientes, 16 proveedores activos, 12 tipos de cápsulas.
+                        Distribución por tipología, búsqueda con IA, y sistema de comentarios.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">OpenAI Search</span>
+                        <span class="tag">React</span>
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">Drizzle ORM</span>
+                        <span class="tag">Food Industry</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="project">
+                <img src="images/04-innpak-formuladoria.png" alt="FormuladorIA" class="project-image">
+                <div class="project-info">
+                    <h2 class="project-title">🔬 FormuladorIA - Lab Expert v2.1</h2>
+                    <p class="project-description">
+                        Sistema de creación de fórmulas alimentarias con IA para laboratorios de I+D.
+                        68 ingredientes, 43 fórmulas creadas, 15 tests realizados, promedio calidad 8.6/10.
+                        Generación de fórmulas con GPT-4o, calculadora nutricional en tiempo real,
+                        y flujo de aprobación (borrador → testing → aprobado).
+                    </p>
+                    <div class="tags">
+                        <span class="tag">GPT-4o</span>
+                        <span class="tag">Food Science</span>
+                        <span class="tag">React</span>
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">Workflow Management</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 5 -->
+            <div class="project">
+                <img src="images/05-musicid-audiotrackdetect.png" alt="MusicID" class="project-image">
+                <div class="project-info">
+                    <h2 class="project-title">🎵 MusicID - Identificador de Música</h2>
+                    <p class="project-description">
+                        Sube sesiones de DJ, mixes o grabaciones de radio y la IA identifica todas las canciones.
+                        Soporta MP3, WAV, FLAC, M4A hasta 100MB. Integración con Spotify y YouTube Music 
+                        para exportar playlists automáticamente. Usa ACRCloud para reconocimiento.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">ACRCloud</span>
+                        <span class="tag">Spotify API</span>
+                        <span class="tag">YouTube API</span>
+                        <span class="tag">Audio Processing</span>
+                        <span class="tag">OAuth 2.0</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 6 -->
+            <div class="project">
+                <img src="images/06-taskmaster-pro.png" alt="TaskMaster Pro" class="project-image">
+                <div class="project-info">
+                    <h2 class="project-title">✅ TaskMaster Pro - Gestión de Tareas Gamificada</h2>
+                    <p class="project-description">
+                        Sistema completo de gestión de tareas con tablero Kanban, calendario, y gamificación.
+                        2630 puntos, nivel 8, racha de 12 días. Modo concentración con Pomodoro,
+                        columnas personalizables, etiquetas de colores, filtros avanzados, y zoom del canvas.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">Kanban</span>
+                        <span class="tag">Drag & Drop</span>
+                        <span class="tag">Gamificación</span>
+                        <span class="tag">Pomodoro</span>
+                        <span class="tag">React</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 7 -->
+            <div class="project">
+                <img src="images/07-soundscape-traveltunes.jpg" alt="SoundScape" class="project-image">
+                <div class="project-info">
+                    <h2 class="project-title">🎧 SoundScape - Música de Viaje con IA</h2>
+                    <p class="project-description">
+                        Descubre la música que define cada destino. Ingresa una ciudad o país y la IA 
+                        genera playlists con artistas locales y representativos. Tokio → J-pop, 
+                        Nashville → Country, Buenos Aires → Tango. Exporta a Spotify o YouTube Music.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">OpenAI</span>
+                        <span class="tag">Spotify API</span>
+                        <span class="tag">YouTube API</span>
+                        <span class="tag">Cultural AI</span>
+                        <span class="tag">Travel</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 8 -->
+            <div class="project">
+                <img src="images/08-webhook-tester.png" alt="Webhook Tester" class="project-image">
+                <div class="project-info">
+                    <h2 class="project-title">🔗 Appgile Webhook Tester</h2>
+                    <p class="project-description">
+                        Herramienta profesional para monitorear y probar webhooks en tiempo real.
+                        Webhooks estáticos compartibles con claves de acceso, aislamiento de sesiones,
+                        soporte para todos los métodos HTTP, copia como cURL, y persistencia en PostgreSQL.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">WebSockets</span>
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">Express.js</span>
+                        <span class="tag">Developer Tools</span>
+                        <span class="tag">API Testing</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 9 -->
+            <div class="project">
+                <img src="images/09-conoceme-si-puedes.png" alt="Conóceme si puedes" class="project-image">
+                <div class="project-info">
+                    <h2 class="project-title">🎮 Conóceme si puedes</h2>
+                    <p class="project-description">
+                        Juego de fiesta multiplayer para conocer mejor a tus amigos. 14 jugadores con avatares 
+                        personalizados, minijuegos como "Reconoce al Jugador", trivial del grupo, "Quién es más 
+                        probable que...", temporizadores, panel de administración con contraseña, y WebSockets 
+                        para juego en tiempo real.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">Socket.IO</span>
+                        <span class="tag">Multiplayer</span>
+                        <span class="tag">React</span>
+                        <span class="tag">Party Game</span>
+                        <span class="tag">Real-time</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 10 -->
+            <div class="project">
+                <img src="images/10-soundbrand.png" alt="SoundBrand" class="project-image">
+                <div class="project-info">
+                    <h2 class="project-title">🎨 SoundBrand - Identidad Musical</h2>
+                    <p class="project-description">
+                        Transforma tu música en una identidad de marca única usando IA. Sube una canción (MP3/WAV), 
+                        ACRCloud la identifica, y la IA genera: concepto de marca, 4 visuales de marca, 
+                        artistas similares con retratos AI, canciones relacionadas con artwork. 
+                        Progreso en tiempo real vía WebSocket.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">ACRCloud</span>
+                        <span class="tag">OpenAI DALL-E</span>
+                        <span class="tag">WebSocket</span>
+                        <span class="tag">Brand Generation</span>
+                        <span class="tag">Music AI</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 11 -->
+            <div class="project">
+                <img src="images/11-learnquest-lms.png" alt="LearnQuest LMS" class="project-image">
+                <div class="project-info">
+                    <h2 class="project-title">🎓 LearnQuest - LMS Gamificado</h2>
+                    <p class="project-description">
+                        Sistema de gestión de aprendizaje gamificado para Fundación Teresa. 
+                        Puntos de experiencia, niveles, rachas de aprendizaje, insignias (Common, Rare, Epic, Legendary),
+                        clasificación global, panel de administración, y cursos estructurados.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">EdTech</span>
+                        <span class="tag">Gamificación</span>
+                        <span class="tag">React</span>
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">Badges System</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 12 -->
+            <div class="project">
+                <img src="images/12-superkid-avatar.png" alt="SuperKid Avatar Creator" class="project-image">
+                <div class="project-info">
+                    <h2 class="project-title">🦸 SuperKid Avatar Creator</h2>
+                    <p class="project-description">
+                        Transforma fotos de niños en avatares de superhéroes épicos usando IA.
+                        Estilos personalizables: Cosmic Powers, Tech Genius, Nature Friend, Magical Wonder, 
+                        Ghibli Style. Galería de superhéroes creados, prompts customizables, y procesamiento 
+                        local antes de enviar a OpenAI API.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">OpenAI DALL-E</span>
+                        <span class="tag">Image Generation</span>
+                        <span class="tag">Kids App</span>
+                        <span class="tag">React</span>
+                        <span class="tag">Creative AI</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 13 -->
+            <div class="project">
+                <img src="images/13-shivi-tomix-wedding.jpg" alt="Wedding Website" class="project-image">
+                <div class="project-info">
+                    <h2 class="project-title">💒 Shivi & Tomix Wedding</h2>
+                    <p class="project-description">
+                        Web de boda elegante con countdown en vivo, agenda de 3 días (Welcome Dinner, 
+                        Ceremony & Reception, Farewell Brunch), información de viaje con opciones de transporte,
+                        recomendaciones de hoteles con ratings, tips de seguridad, y diseño responsive.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">Event Website</span>
+                        <span class="tag">Responsive</span>
+                        <span class="tag">React</span>
+                        <span class="tag">i18n Ready</span>
+                        <span class="tag">Wedding Tech</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 14 -->
+            <div class="project">
+                <img src="images/14-ai-call-assistant.png" alt="AI Call Assistant" class="project-image">
+                <div class="project-info">
+                    <h2 class="project-title">📞 AI Call Assistant</h2>
+                    <p class="project-description">
+                        Sistema de llamadas automáticas con voz IA. Integración con Twilio (llamadas), 
+                        OpenAI (contenido), y LiveKit (streaming de voz). Plantillas de mensajes para 
+                        recordatorios de citas, cobros, confirmaciones. Historial de llamadas, grabación 
+                        opcional, y múltiples tipos de voz AI.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">Twilio</span>
+                        <span class="tag">OpenAI</span>
+                        <span class="tag">LiveKit</span>
+                        <span class="tag">Voice AI</span>
+                        <span class="tag">Automation</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 15 -->
+            <div class="project">
+                <img src="images/15-ai-model-comparator.png" alt="AI Model Comparator" class="project-image">
+                <div class="project-info">
+                    <h2 class="project-title">🤖 AI Model Comparator</h2>
+                    <p class="project-description">
+                        Compara modelos de IA lado a lado usando OpenRouter. Catálogo de modelos con precios 
+                        por 1K tokens, tamaño de contexto (hasta 262K), filtros (Free/Paid/Large Context),
+                        control de temperature y max tokens, y respuestas simultáneas para comparación directa.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">OpenRouter</span>
+                        <span class="tag">LLM Comparison</span>
+                        <span class="tag">Developer Tools</span>
+                        <span class="tag">React</span>
+                        <span class="tag">API Integration</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 16 -->
+            <div class="project">
+                <img src="images/16-medea-mind.png" alt="Medea Mind" class="project-image">
+                <div class="project-info">
+                    <h2 class="project-title">🧠 Medea Mind - Asistente Clínico IA</h2>
+                    <p class="project-description">
+                        Asistente de IA especializado en psicología clínica. Modos: diagnóstico diferencial,
+                        estrategias terapéuticas, evaluación psicológica, intervención en crisis.
+                        Historial de consultas, perfil de profesional (Dr. Ana García - Psicología Clínica),
+                        y disclaimer de apoyo profesional.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">HealthTech</span>
+                        <span class="tag">Psychology</span>
+                        <span class="tag">Clinical AI</span>
+                        <span class="tag">OpenAI</span>
+                        <span class="tag">Professional Tool</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 17 -->
+            <div class="project">
+                <img src="images/17-formigal-sunseeker.png" alt="Formigal Sunseeker" class="project-image">
+                <div class="project-info">
+                    <h2 class="project-title">⛷️ Formigal Sunseeker</h2>
+                    <p class="project-description">
+                        App de esquí con predicción meteorológica para Formigal. Condiciones en tiempo real
+                        (temperatura, viento, visibilidad, nubes), navegador temporal 8-48h, estado de pistas
+                        con mapa interactivo, y recomendación de mejor momento para sol. Integración con 
+                        Open-Meteo + WeatherAPI.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">Weather API</span>
+                        <span class="tag">Open-Meteo</span>
+                        <span class="tag">Maps</span>
+                        <span class="tag">Ski/Sports</span>
+                        <span class="tag">React</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 18 -->
+            <div class="project">
+                <img src="images/18-appgile-landing.jpg" alt="Appgile Landing" class="project-image">
+                <div class="project-info">
+                    <h2 class="project-title">🏢 Appgile Corporate Landing</h2>
+                    <p class="project-description">
+                        Web corporativa para Appgile - empresa de plugins financieros para web de vehículos.
+                        500+ plugins desplegados, 150+ partners corporativos, 99.9% uptime. Productos: 
+                        Finance Calculator, Form Builder, API Gateway, Widget Library. Diseño profesional B2B.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">Corporate Site</span>
+                        <span class="tag">B2B</span>
+                        <span class="tag">Fintech</span>
+                        <span class="tag">Landing Page</span>
+                        <span class="tag">Tailwind CSS</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 19 -->
+            <div class="project">
+                <img src="images/19-fundacion-teresa.jpg" alt="Fundación Teresa" class="project-image">
+                <div class="project-info">
+                    <h2 class="project-title">💜 Fundación Teresa Landing</h2>
+                    <p class="project-description">
+                        Web para ONG de inclusión laboral tecnológica de personas con discapacidad.
+                        Secciones para empresas, centros de formación y personas. "Donde la discapacidad 
+                        se transforma en capacidad diferente." Video de presentación, testimonios, 
+                        y call-to-actions para contacto vía email y WhatsApp.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">NGO/Non-profit</span>
+                        <span class="tag">Accessibility</span>
+                        <span class="tag">Social Impact</span>
+                        <span class="tag">Responsive</span>
+                        <span class="tag">Landing Page</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 20 -->
+            <div class="project">
+                <img src="images/20-asesor-mercantil.png" alt="Tu Asesor Mercantil" class="project-image">
+                <div class="project-info">
+                    <h2 class="project-title">💼 Tu Asesor Mercantil</h2>
+                    <p class="project-description">
+                        Chatbot IA especializado en asesoría empresarial y mercantil. Genera tablas comparativas
+                        estructuradas entre países (Perú, Guatemala, México), análisis de regulaciones, 
+                        y recomendaciones de negocio. Chat conversacional con historial y typing indicators.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">OpenAI</span>
+                        <span class="tag">Business AI</span>
+                        <span class="tag">Chatbot</span>
+                        <span class="tag">Legal/Compliance</span>
+                        <span class="tag">React</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 21 -->
+            <div class="project">
+                <img src="images/21-cosmic-night-theme.jpg" alt="Cosmic Night Theme" class="project-image">
+                <div class="project-info">
+                    <h2 class="project-title">🎨 Cosmic Night Design System</h2>
+                    <p class="project-description">
+                        Sistema de diseño completo para componentes Appgile. Paleta de colores, botones 
+                        (primary, secondary, outline, ghost, destructive), form controls (inputs, selects, 
+                        toggles), componentes (cards, alerts, badges, progress), tipografía, y avatares.
+                        Documentación interactiva con ejemplos vivos.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">Design System</span>
+                        <span class="tag">UI Components</span>
+                        <span class="tag">CSS/Tailwind</span>
+                        <span class="tag">Documentation</span>
+                        <span class="tag">Style Guide</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 22 -->
+            <div class="project">
+                <img src="images/22-corazon-narrador.png" alt="Corazón Narrador" class="project-image">
+                <div class="project-info">
+                    <h2 class="project-title">📖 Corazón Narrador</h2>
+                    <p class="project-description">
+                        Crea cuentos ilustrados personalizados con tu foto. Sube una imagen de un niño
+                        y la IA genera una historia única con el niño como protagonista. Personalización
+                        de prompts, múltiples estilos de ilustración, y exportación del cuento final.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">Storytelling AI</span>
+                        <span class="tag">Image Generation</span>
+                        <span class="tag">Kids Content</span>
+                        <span class="tag">OpenAI</span>
+                        <span class="tag">Node.js</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 23 -->
+            <div class="project">
+                <img src="images/23-copernicus-job-posting.jpg" alt="Copernicus Job Posting" class="project-image">
+                <div class="project-info">
+                    <h2 class="project-title">📋 Copernicus Job Posting Generator</h2>
+                    <p class="project-description">
+                        Generador de ofertas de trabajo técnicas con métricas de proyecto. Stack tecnológico
+                        detallado (.NET Core, React, Azure), distribución de horas (1,232h totales), 
+                        proyectos a trabajar, escenarios de contratación (6 vs 10 meses), y KPIs de éxito
+                        (80% test coverage, 100% vulnerabilities fixed).
+                    </p>
+                    <div class="tags">
+                        <span class="tag">HR Tech</span>
+                        <span class="tag">Documentation</span>
+                        <span class="tag">Enterprise</span>
+                        <span class="tag">Project Planning</span>
+                        <span class="tag">Technical Specs</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 24 -->
+            <div class="project">
+                <img src="images/24-mudiia-admin.png" alt="MudiIA Admin" class="project-image">
+                <div class="project-info">
+                    <h2 class="project-title">⚙️ MudiIA Admin Panel</h2>
+                    <p class="project-description">
+                        Panel de administración para configurar tarifas de mudanzas nacionales. Tarifa base
+                        (370€), precio por m³ (40€), configuración por: manipulación, kilometraje, zonas,
+                        servicios, temporada, descuentos. Calculadora de prueba en tiempo real con desglose
+                        completo de costes.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">Admin Dashboard</span>
+                        <span class="tag">Pricing Engine</span>
+                        <span class="tag">React</span>
+                        <span class="tag">Real-time Calc</span>
+                        <span class="tag">B2B Tool</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 25 -->
+            <div class="project">
+                <img src="images/25-mudiia-photo-analysis.png" alt="MudiIA Photo Analysis" class="project-image">
+                <div class="project-info">
+                    <h2 class="project-title">📷 MudiIA Photo Analysis</h2>
+                    <p class="project-description">
+                        Análisis de fotos con IA en tiempo real para detectar objetos de mudanza.
+                        Progreso visual (60%, 3/5 fotos), contador de objetos detectados (13+),
+                        tips contextuales ("Empaca caja de primera noche"), y estado de procesamiento
+                        por foto individual.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">Computer Vision</span>
+                        <span class="tag">OpenAI Vision</span>
+                        <span class="tag">Real-time Progress</span>
+                        <span class="tag">Object Detection</span>
+                        <span class="tag">UX Design</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 26 -->
+            <div class="project">
+                <img src="images/26-weyeti-architecture.png" alt="Weyeti Architecture" class="project-image">
+                <div class="project-info">
+                    <h2 class="project-title">🏗️ Sistema Weyeti - Arquitectura</h2>
+                    <p class="project-description">
+                        Arquitectura de plataforma de cotización financiera automotriz. Capas: usuarios
+                        (dealer, agente financiero, admin), web components, lógica de negocio con state
+                        management, servicios API, infraestructura (PostgreSQL, Redis, RabbitMQ, S3).
+                        Métricas: 1,250 req/s, 145ms response, 99.97% availability.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">Architecture Diagram</span>
+                        <span class="tag">Fintech</span>
+                        <span class="tag">Automotive</span>
+                        <span class="tag">Enterprise</span>
+                        <span class="tag">High Performance</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 27 -->
+            <div class="project">
+                <img src="images/27-cardif-insurance-plugins.jpg" alt="Cardif Insurance Plugins" class="project-image">
+                <div class="project-info">
+                    <h2 class="project-title">🛡️ Cardif Insurance Plugins Showcase</h2>
+                    <p class="project-description">
+                        Catálogo de plugins de seguros financieros para Latinoamérica. 4 productos:
+                        Seguro Prestamista (protección de pagos), Garantía Extendida (electrodomésticos),
+                        Seguro de Vida Crédito, Protección Desempleo. Cada plugin con simulador interactivo
+                        y especificaciones de integración para partners.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">InsurTech</span>
+                        <span class="tag">Fintech</span>
+                        <span class="tag">B2B Plugins</span>
+                        <span class="tag">LATAM</span>
+                        <span class="tag">Product Catalog</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 28 -->
+            <div class="project">
+                <img src="images/28-cardif-partner-portal.png" alt="Cardif Partner Portal" class="project-image">
+                <div class="project-info">
+                    <h2 class="project-title">🤝 Cardif Partner Portal</h2>
+                    <p class="project-description">
+                        Dashboard B2B para gestión de partners y plugins de seguros. Métricas: 24 partners
+                        activos (+12%), 156 plugins asignados (+8%), 89 integraciones live (+24%), 5 acciones
+                        pendientes. Feed de actividad reciente con integraciones de Banco Nacional, TechRetail,
+                        AutoFinance.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">Partner Management</span>
+                        <span class="tag">B2B Dashboard</span>
+                        <span class="tag">Analytics</span>
+                        <span class="tag">Enterprise</span>
+                        <span class="tag">SaaS</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 29 -->
+            <div class="project">
+                <img src="images/29-cardif-commercial-landing.jpg" alt="Cardif Commercial Landing" class="project-image">
+                <div class="project-info">
+                    <h2 class="project-title">🌐 Cardif Commercial Landing</h2>
+                    <p class="project-description">
+                        Landing page B2B para embedded insurance en Latinoamérica. 6+ productos de seguros,
+                        6 países LATAM, 4 modos de integración, <15 min tiempo de integración.
+                        Partners: Banco Popular, Mercado Libre, Falabella, Rappi, Nu Bank, Liverpool.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">B2B Marketing</span>
+                        <span class="tag">InsurTech</span>
+                        <span class="tag">LATAM</span>
+                        <span class="tag">Landing Page</span>
+                        <span class="tag">Enterprise Sales</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 30 -->
+            <div class="project">
+                <img src="images/30-cardif-plugin-docs.jpg" alt="Cardif Plugin Documentation" class="project-image">
+                <div class="project-info">
+                    <h2 class="project-title">📚 Cardif Plugin Developer Docs</h2>
+                    <p class="project-description">
+                        Documentación técnica completa para integración de plugins de seguros. Coberturas
+                        incluidas, ubicaciones recomendadas (checkout, modal, app móvil, portal cliente),
+                        tester en vivo con configuración, guía de integración con snippets para React/JS/Angular,
+                        y referencia de propiedades.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">Developer Docs</span>
+                        <span class="tag">API Reference</span>
+                        <span class="tag">Integration Guide</span>
+                        <span class="tag">Live Tester</span>
+                        <span class="tag">Multi-framework</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 31 -->
+            <div class="project">
+                <img src="images/31-security-scanner.jpg" alt="Security Scanner" class="project-image">
+                <div class="project-info">
+                    <h2 class="project-title">🔒 Appgile Security Scanner</h2>
+                    <p class="project-description">
+                        Herramienta DevSecOps para análisis de vulnerabilidades de proyectos. Escaneo de 
+                        dependencias NPM, detección de versiones vulnerables conocidas, Indicators of Compromise
+                        (IoCs), reportes por proyecto, estado SECURE/WARNING/CRITICAL. Monitorea 27+ paquetes,
+                        50+ archivos.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">DevSecOps</span>
+                        <span class="tag">Security</span>
+                        <span class="tag">Vulnerability Scan</span>
+                        <span class="tag">NPM Audit</span>
+                        <span class="tag">Compliance</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 32 -->
+            <div class="project">
+                <img src="images/32-inventario-vulnerabilidades.jpg" alt="Inventario Vulnerabilidades" class="project-image">
+                <div class="project-info">
+                    <h2 class="project-title">📋 AMYGO Contact System</h2>
+                    <p class="project-description">
+                        Sistema de contacto y gestión de leads para AMYGO mudanzas. Formulario con validación,
+                        stepper de progreso, integración con backend para procesamiento de solicitudes.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">Lead Generation</span>
+                        <span class="tag">Forms</span>
+                        <span class="tag">React</span>
+                        <span class="tag">Vite</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 33 -->
+            <div class="project">
+                <img src="images/33-taxai-hacienda.jpg" alt="TaxAI Hacienda" class="project-image">
+                <div class="project-info">
+                    <h2 class="project-title">📄 TaxAI - Hacienda Advisor</h2>
+                    <p class="project-description">
+                        Analiza notificaciones de Hacienda al instante usando IA. Sube tu PDF y obtén:
+                        explicación clara del contenido, cálculo de plazos de respuesta, opciones disponibles
+                        con enlaces a Sede Electrónica. Análisis instantáneo, control de plazos, privacidad total.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">LegalTech</span>
+                        <span class="tag">Document AI</span>
+                        <span class="tag">PDF Processing</span>
+                        <span class="tag">OpenAI</span>
+                        <span class="tag">Deadline Tracking</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 34 -->
+            <div class="project">
+                <img src="images/34-marketmind-stocks.png" alt="MarketMind Stocks" class="project-image">
+                <div class="project-info">
+                    <h2 class="project-title">📈 MarketMind - Stock Analytics</h2>
+                    <p class="project-description">
+                        Dashboard de análisis bursátil con IA en tiempo real. KPIs: Highest Yield (9.4% Altria),
+                        Top Performer 24h (+3.34% NVIDIA), Market Sentiment (Neutral). Filtros por mercado
+                        (NASDAQ, NYSE, BME), dividendos >6% destacados en verde, market cap, y cambios %.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">Fintech</span>
+                        <span class="tag">Stock Market</span>
+                        <span class="tag">AI Forecasting</span>
+                        <span class="tag">Real-time Data</span>
+                        <span class="tag">Dark Mode UI</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 35 -->
+            <div class="project">
+                <img src="images/35-divisearch.png" alt="DiviSearch" class="project-image">
+                <div class="project-info">
+                    <h2 class="project-title">💰 DiviSearch - Global Dividend Screener</h2>
+                    <p class="project-description">
+                        Buscador de dividendos global con filtros por región (US, UK, EU, Asia, LATAM).
+                        16 resultados con tarjetas detalladas: ticker, yield (hasta 18.5% Petrobras), 
+                        frecuencia de pago, racha de crecimiento. Slider de yield mínimo, búsqueda por
+                        ticker/empresa/sector. "Aristócratas del Dividendo" destacados.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">Fintech</span>
+                        <span class="tag">Dividend Investing</span>
+                        <span class="tag">Global Markets</span>
+                        <span class="tag">Screener</span>
+                        <span class="tag">React</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 36 -->
+            <div class="project">
+                <img src="images/36-ddr-to-hu.png" alt="DDR to HU" class="project-image">
+                <div class="project-info">
+                    <h2 class="project-title">📝 DDR to HU - Document Splitter</h2>
+                    <p class="project-description">
+                        Transforma documentos funcionales (DDR) en historias de usuario ágiles (HU) usando
+                        Claude Sonnet 4.5. Soporta PDF, DOCX, TXT. Extrae estructura del documento y genera
+                        user stories con criterios de aceptación. Herramienta esencial para equipos Agile.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">Agile/Scrum</span>
+                        <span class="tag">Claude AI</span>
+                        <span class="tag">Document Processing</span>
+                        <span class="tag">User Stories</span>
+                        <span class="tag">PM Tools</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 37 -->
+            <div class="project">
+                <img src="images/37-gemini-studio.png" alt="GeminiStudio" class="project-image">
+                <div class="project-info">
+                    <h2 class="project-title">✨ GeminiStudio</h2>
+                    <p class="project-description">
+                        Chat interface powered by Google Gemini API. Selector de modelo (Gemini Flash/Pro),
+                        historial de generaciones (Cyberpunk City, Neon Portrait, Retro Poster, Space Explorer),
+                        API key configurable, almacenamiento local. Interfaz limpia estilo ChatGPT.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">Google Gemini</span>
+                        <span class="tag">Chat UI</span>
+                        <span class="tag">AI Generation</span>
+                        <span class="tag">React</span>
+                        <span class="tag">Local Storage</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Portfolio generado con ❤️ usando Clawdbot + Claude</p>
+            <div class="contact">
+                <p>📧 Contacto: <a href="https://t.me/Tomixter">@Tomixter (Telegram)</a></p>
+            </div>
+            <p style="margin-top: 20px; font-size: 0.9rem;">
+                Especialización: MCP, RAG, Voice AI, Fintech, EdTech, Food Tech
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
